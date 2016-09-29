@@ -41,6 +41,7 @@ public class Collide : MonoBehaviour {
 
 			playerHealth.lives--;
 			SpawnMeteor.meteorCounter--;
+            SelectionManager.Instance.ClearSelection();
             Destroy(gameObject);
 		}
 	}

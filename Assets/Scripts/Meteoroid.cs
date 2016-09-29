@@ -40,6 +40,7 @@ public class Meteoroid : MonoBehaviour {
     public void OnExplode()
     {
         exploded = true;
+        SpawnMeteor.meteorCounter--;
         GameObject boom = (GameObject)Instantiate(destroyEffect, transform.position, transform.rotation);
         boom.transform.parent = transform.parent;
         SelectionManager.Instance.ClearSelection();
