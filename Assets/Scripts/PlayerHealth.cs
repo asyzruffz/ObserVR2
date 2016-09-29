@@ -1,24 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MeteorIndicator : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour {
 
 	public GameObject player;
+	public int lives = 4;
 
-	public Vector3 textPos; //0,10,20
+	public Vector3 textPos; //0,-12,20
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 
 		this.transform.position = player.transform.position+textPos;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		if (SpawnMeteor.meteorCounter > 0) {
-			GetComponent<TextMesh> ().text = "Incoming Meteor Attack!!";
-		} else {
-			GetComponent<TextMesh> ().text = "You are safe for now.....";
-		}
+		
+			GetComponent<TextMesh> ().text = "Lives: " + lives;
 	}
 }
