@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class Collide : MonoBehaviour {
-	public Collider hud;
+
+    public Collider hud;
+
 	GameObject player;
 	AudioSource[] aSource;
 	AudioSource painSound;
@@ -15,8 +17,6 @@ public class Collide : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 
 		hud = player.GetComponent<Collider>();
-
-		this.hud = player.GetComponent<CapsuleCollider>();
 		playerHealth = player.GetComponentInChildren<PlayerHealth> ();
 
 		//to play different audio
@@ -33,7 +33,6 @@ public class Collide : MonoBehaviour {
 
 	void OnTriggerEnter(Collider abc)
 	{
-
 		if(abc.Equals(hud))
 		{
 			if (playerHealth.lives == 1) {
