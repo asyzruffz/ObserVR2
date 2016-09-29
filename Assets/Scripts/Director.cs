@@ -24,8 +24,7 @@ public class Director : MonoBehaviour {
                     first = obj.transform;
                     prev = first;
                 }
-
-                //obj.GetComponent<SatelliteController>().SetLaserEnabled(true);
+                
                 prev.GetComponent<SphericalMovement>().FacingTowards(obj.transform);
                 obj.GetComponent<SphericalMovement>().FacingTowards(first);
                 prev = obj.transform;

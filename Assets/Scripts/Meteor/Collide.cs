@@ -20,7 +20,7 @@ public class Collide : MonoBehaviour {
 		if(abc.Equals(hud))
 		{
 			SpawnMeteor.meteorCounter--;
-			Destroy(gameObject);
+            Destroy(gameObject);
 		}
 	}
 }
