@@ -12,10 +12,7 @@ public class SpawnMeteor : MonoBehaviour {
 
 	public float gravityChangeInterval; //the time until gravity is increased
 	public float gravityChange; //the speed of gravity increased
-
-	Vector3 pos;
-	
-	// Use this for initialization
+    
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		attractor = player.GetComponent<FauxGravityAttractor> ();
@@ -24,19 +21,19 @@ public class SpawnMeteor : MonoBehaviour {
 		InvokeRepeating ("gravity", gravityChangeInterval, gravityChangeInterval);
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		pos = Random.onUnitSphere;
-		this.transform.position = pos*radius; //to create random spawning meteor
-
+		
 	}
 
 	//spawn meteor
 	void spawn()
 	{
 		if (meteorCounter < meteorLimit) {
-			Instantiate (meteor, this.transform.position, this.transform.rotation);
-			meteorCounter++;
+            Vector3 meteorPos = Random.onUnitSphere * radius;
+            GameObject meteorObject = (GameObject)Instantiate(meteor, meteorPos, Quaternion.identity);
+            meteorObject.name = "Meteor";
+            meteorObject.transform.parent = gameObject.transform;
+            meteorCounter++;
 		}
 	}
 

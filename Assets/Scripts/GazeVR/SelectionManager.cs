@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 
 public class SelectionManager : Singleton<SelectionManager>
 {
+    public bool showLines = true;
     public GameObject lineType;
     public List<GameObject> nodes = new List<GameObject>();
 
@@ -29,7 +30,8 @@ public class SelectionManager : Singleton<SelectionManager>
     {
         obj.GetComponent<Selectable>().connected = true;
         nodes.Add(obj);
-        CreateConnectionLine();
+        if(showLines)
+            CreateConnectionLine();
     }
 
     public void ClearSelection ()

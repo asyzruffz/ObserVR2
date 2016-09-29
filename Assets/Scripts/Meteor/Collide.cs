@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class Collide : MonoBehaviour {
-	public CapsuleCollider hud;
+	public Collider hud;
 	GameObject player;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
-		this.hud = player.GetComponent<CapsuleCollider>();
+		hud = player.GetComponent<Collider>();
 	}
 	
 	// Update is called once per frame
@@ -17,12 +17,10 @@ public class Collide : MonoBehaviour {
 
 	void OnTriggerEnter(Collider abc)
 	{
-		
 		if(abc.Equals(hud))
 		{
 			SpawnMeteor.meteorCounter--;
-			Destroy(this.gameObject);
+			Destroy(gameObject);
 		}
-
 	}
 }

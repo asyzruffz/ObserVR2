@@ -40,7 +40,7 @@ public class SphericalMovement : MonoBehaviour
     private void UpdatePositionRotation()
     {
         transform.localPosition = rotation * Vector3.forward * radius;
-        if (fixedDirection)
+        /*if (fixedDirection)
         {
             Vector3 upwards = transform.localPosition.normalized;
             Vector3 forward = Vector3.up;
@@ -50,6 +50,12 @@ public class SphericalMovement : MonoBehaviour
         else
         {
             transform.rotation = rotation * Quaternion.LookRotation(direction, Vector3.forward);
-        }
+        }*/
+    }
+
+    public void FacingTowards(Transform target)
+    {
+        Vector3 fowardFace = (target.transform.position - transform.position).normalized;
+        transform.rotation = Quaternion.LookRotation(fowardFace, transform.up) * Quaternion.Euler(Vector3.right * 90);
     }
 }
