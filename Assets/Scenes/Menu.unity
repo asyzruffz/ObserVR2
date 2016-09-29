@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 134990, guid: 9446d2ecb7e44c841b96fe26d8f167b5, type: 2}
-  amount: 50
+  amount: 20
   radius: 80
 --- !u!1001 &1199913397
 Prefab:

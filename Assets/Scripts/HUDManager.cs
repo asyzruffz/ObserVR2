@@ -5,8 +5,7 @@ using System.Collections;
 
 public class HUDManager : MonoBehaviour
 {
-
-    public Health character;
+    //public Health character;
     public Text hpDisplay;
     public Text enemyDisplay;
 
@@ -17,13 +16,13 @@ public class HUDManager : MonoBehaviour
 
     void Update()
     {
-        hpDisplay.text = "HP: " + character.GetHealth();
+        hpDisplay.text = "HP: " + "0";// character.GetHealth();
         enemyDisplay.text = "";
 
-        if (character.GetHealth() <= 0)
+        /*if (character.GetHealth() <= 0)
         {
             StartCoroutine("GoToMenu");
-        }
+        }*/
     }
 
     IEnumerator GoToMenu()
