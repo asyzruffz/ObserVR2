@@ -5,13 +5,15 @@ using System.Collections;
 public class FauxGravityBody : MonoBehaviour {
 
     public FauxGravityAttractor attractor;
-	GameObject player;
 
     private Transform myTransform;
 
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player");
-		this.attractor = player.GetComponent<FauxGravityAttractor>();
+        if(attractor == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            attractor = player.GetComponent<FauxGravityAttractor>();
+        }
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         GetComponent<Rigidbody>().useGravity = false;
         myTransform = transform;

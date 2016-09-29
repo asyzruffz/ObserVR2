@@ -11,8 +11,7 @@ public class Collide : MonoBehaviour {
 	AudioSource deathSound;
 
 	PlayerHealth playerHealth;
-
-	// Use this for initialization
+    
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 
@@ -25,8 +24,7 @@ public class Collide : MonoBehaviour {
 		deathSound = aSource [1];
 
 	}
-
-	// Update is called once per frame
+    
 	void Update () {
 		
 	}

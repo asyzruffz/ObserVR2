@@ -38,7 +38,10 @@ public class Laser : MonoBehaviour {
             if(Physics.Raycast(ray, out hit, maxDistance))
             {
                 line.SetPosition(1, hit.point);
-                //if(hit.transform.GetComponent<>())
+                if(hit.transform.GetComponent<Meteoroid>())
+                {
+                    hit.transform.GetComponent<Meteoroid>().OnExplode();
+                }
             }
             else
             {

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Starable))]
 public class Selectable : MonoBehaviour {
 
     public float activeTime = 1;

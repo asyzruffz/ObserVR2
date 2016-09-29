@@ -10,6 +10,7 @@ public class Meteoroid : MonoBehaviour {
     {
         int rng = Random.Range(0, variations.Length);
         GameObject model = (GameObject)Instantiate(variations[rng], transform.position, Quaternion.identity);
+        model.transform.localScale = transform.localScale;
         model.transform.parent = transform;
         model.name = "Model";
 	}
