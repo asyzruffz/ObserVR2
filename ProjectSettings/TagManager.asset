@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Satellite
   - Meteoroid
+  - Score
   layers:
   - Default
   - TransparentFX

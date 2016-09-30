@@ -45,6 +45,8 @@ public class Meteoroid : MonoBehaviour {
         boom.transform.parent = transform.parent;
         SelectionManager.Instance.ClearSelection();
         Destroy(gameObject);
+
+        FindObjectOfType<PlayerHealth>().score += 10;
     }
 
     private float DamagePerSecond()

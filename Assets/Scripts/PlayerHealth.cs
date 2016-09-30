@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
 
 	public GameObject player;
 	public GameObject restartText;
-	public int lives = 4;
-	MeshRenderer textRender;
+	public GameObject scoreText;
+    public int lives = 4;
+	public int score = 0;
+    public Vector3 textPos; //0,-12,20
 
-	public Vector3 textPos; //0,-12,20
-	// Use this for initialization
-	void Start () {
+    private MeshRenderer textRender;
+    private float timer = 0;
+
+    void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		restartText = GameObject.Find ("Restart");
 		textRender = restartText.GetComponent<MeshRenderer> ();
@@ -21,21 +25,21 @@ public class PlayerHealth : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
-
-
-		if (lives == 0) {
+		if (lives <= 0) {
 			textRender.enabled = true;
+            int remain = 5 - (int)timer;
+            restartText.GetComponent<TextMesh>().text = "Wait " + remain + " seconds to Restart";
+            timer += Time.deltaTime;
 
-			Invoke ("restart", 5.0f);
-			//Time.timeScale = 0.0f;
-		} else {
-			GetComponent<TextMesh> ().text = "Lives: " + lives;
+            Invoke ("restart", 5.0f);
 		}
 
-	}
+        GetComponent<TextMesh>().text = "Lives: " + lives;
+        scoreText.GetComponent<TextMesh>().text = "Score: " + score;
+    }
 
 	void restart(){
-		SceneManager.LoadScene ("Game");
+        timer = 0;
+        SceneManager.LoadScene ("Game");
 	}
 }
