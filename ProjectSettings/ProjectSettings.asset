@@ -9,7 +9,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Ruffz
+  companyName: TotusStudio
   productName: ObserVR
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -326,7 +326,8 @@ PlayerSettings:
   psp2InfoBarColor: 0
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: 
   metroPackageName: ObserVR
   metroPackageVersion: 
   metroCertificatePath: 
