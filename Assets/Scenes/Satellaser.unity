@@ -131,7 +131,7 @@ MonoBehaviour:
   attractor: {fileID: 0}
   radius: 50
   gravityChangeInterval: 15
-  gravityChange: 0.02
+  gravityChange: 0
 --- !u!4 &367646491 stripped
 Transform:
   m_PrefabParentObject: {fileID: 471638, guid: 0844eef3fbe04264487084f99eddbb61, type: 2}
@@ -480,7 +480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1230103548
 Transform:
   m_ObjectHideFlags: 0
@@ -579,7 +579,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 402918, guid: bb9deeac5d29b6c489d36fd8ce25f2f9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 402918, guid: bb9deeac5d29b6c489d36fd8ce25f2f9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -604,10 +604,6 @@ Prefab:
     - target: {fileID: 402918, guid: bb9deeac5d29b6c489d36fd8ce25f2f9, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11494538, guid: bb9deeac5d29b6c489d36fd8ce25f2f9, type: 2}
-      propertyPath: showLines
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb9deeac5d29b6c489d36fd8ce25f2f9, type: 2}
