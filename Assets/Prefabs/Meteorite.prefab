@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e6a0246b916794e938643a1b184d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeTime: 1
+  activeTime: 3
   selected: 0
   connected: 0
 --- !u!114 &11426042
@@ -394,6 +394,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Meteoroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: activeTime
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
