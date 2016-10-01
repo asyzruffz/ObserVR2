@@ -14,13 +14,14 @@ public class Warning : MonoBehaviour {
     {
         var meteoroids = FindObjectsOfType<Meteoroid>();
 
+        //foreach(var meteoroid in FindObjectsOfType<Meteoroid>())
         if(meteoroids.Length > 0)
         {
             //Debug.Log(cam.WorldToViewportPoint(meteoroids[0].gameObject.transform.position).ToString());
             Vector3 viewportPos = cam.WorldToViewportPoint(meteoroids[0].gameObject.transform.position);
-            float screenX = Mathf.Clamp(viewportPos.x, 0, 1);
-            float screenY = Mathf.Clamp(viewportPos.y, 0, 1);
-            transform.localPosition = new Vector3(screenX, screenY);
+            float screenX = Mathf.Clamp(viewportPos.x, 0, 1) * 2 - 1;
+            float screenY = Mathf.Clamp(viewportPos.y, 0, 1) * 2 - 1;
+            transform.localPosition = new Vector3(screenX * 180, screenY * 180, transform.localPosition.z);
         }
 	}
 }

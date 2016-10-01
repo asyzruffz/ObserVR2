@@ -41,7 +41,7 @@ public class Meteoroid : MonoBehaviour {
     {
         exploded = true;
 
-        FindObjectOfType<PlayerHealth>().score += 10;
+        FindObjectOfType<Score>().score += 10;
         var player = GameObject.FindWithTag("Player");
         if (player.GetComponent<CameraShake>() != null)
         {
