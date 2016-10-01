@@ -31,15 +31,16 @@ public class PlayerHealth : MonoBehaviour {
             restartText.GetComponent<TextMesh>().text = "Wait " + remain + " seconds to Restart";
             timer += Time.deltaTime;
 
-            Invoke ("restart", 5.0f);
+            Invoke ("Restart", 5.0f);
 		}
 
         GetComponent<TextMesh>().text = "Lives: " + lives;
         scoreText.GetComponent<TextMesh>().text = "Score: " + score;
     }
 
-	void restart(){
+	void Restart(){
         timer = 0;
+        SpawnMeteor.meteorCounter = 0;
         SceneManager.LoadScene ("Game");
 	}
 }

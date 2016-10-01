@@ -40,13 +40,21 @@ public class Meteoroid : MonoBehaviour {
     public void OnExplode()
     {
         exploded = true;
-        SpawnMeteor.meteorCounter--;
-        GameObject boom = (GameObject)Instantiate(destroyEffect, transform.position, transform.rotation);
-        boom.transform.parent = transform.parent;
-        SelectionManager.Instance.ClearSelection();
-        Destroy(gameObject);
 
         FindObjectOfType<PlayerHealth>().score += 10;
+        var player = GameObject.FindWithTag("Player");
+        if (player.GetComponent<CameraShake>() != null)
+        {
+            player.GetComponent<CameraShake>().ShakeCamera();
+        }
+
+        GameObject boom = (GameObject)Instantiate(destroyEffect, transform.position, transform.rotation);
+        boom.transform.parent = transform.parent;
+
+        SelectionManager.Instance.ClearSelection();
+        SpawnMeteor.meteorCounter--;
+        Destroy(gameObject);
+
     }
 
     private float DamagePerSecond()
@@ -57,7 +65,7 @@ public class Meteoroid : MonoBehaviour {
         {
             if (node != null && node.gameObject.CompareTag("Satellite"))
             {
-                damage += 15;
+                damage += node.GetComponent<SatelliteController>().laserDamage;
             }
         }
 

@@ -56,6 +56,9 @@ public class SphericalMovement : MonoBehaviour
     public void FacingTowards(Transform target)
     {
         Vector3 fowardFace = (target.transform.position - transform.position).normalized;
-        transform.rotation = Quaternion.LookRotation(fowardFace, transform.up) * Quaternion.Euler(Vector3.right * 90);
+        if(fowardFace != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(fowardFace, transform.up) * Quaternion.Euler(Vector3.right * 90);
+        }
     }
 }

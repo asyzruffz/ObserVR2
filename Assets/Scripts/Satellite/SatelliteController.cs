@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SatelliteController : MonoBehaviour {
 
+    public float laserDamage = 15f;
     public float speed = 1.0f;
     public float rotateSpeed = 360.0f;
 
