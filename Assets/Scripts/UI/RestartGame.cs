@@ -3,18 +3,21 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class RestartGame : MonoBehaviour {
+public class RestartGame : MonoBehaviour
+{
 
     public PlayerHealth health;
 
     private Text restartText;
     private float timer = 0;
 
-    void Start () {
+    void Start()
+    {
         restartText = GetComponent<Text>();
     }
-	
-	void Update () {
+
+    void Update()
+    {
         if (health.lives <= 0)
         {
             int remain = 5 - (int)timer;
