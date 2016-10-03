@@ -9,6 +9,8 @@ public class SpawnMeteor : MonoBehaviour {
 	public GameObject player; //for gravity attractor purpose
 	public FauxGravityAttractor attractor; //gravity attractor purpose
 	public float radius;  //the radius of meteor will spawned
+    [Range(0,180)]
+    public float angleRange = 180f;
 
 	public float gravityChangeInterval; //the time until gravity is increased
 	public float gravityChange; //the speed of gravity increased
@@ -29,7 +31,12 @@ public class SpawnMeteor : MonoBehaviour {
 	void spawn()
 	{
 		if (meteorCounter < meteorLimit) {
-            Vector3 meteorPos = Random.onUnitSphere * radius;
+
+            Vector3 meteorPos;
+            do { // Limit the vertical angle to spawn
+                meteorPos = Random.onUnitSphere * radius;
+            } while (Mathf.Abs(meteorPos.y) > radius * Mathf.Sin(angleRange * 0.5f * Mathf.Deg2Rad));
+
             GameObject meteorObject = (GameObject)Instantiate(meteor, meteorPos, Quaternion.identity);
             meteorObject.name = "Meteor";
             meteorObject.transform.parent = gameObject.transform;
