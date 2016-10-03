@@ -45,7 +45,7 @@ public class Laser : MonoBehaviour {
             }
             else
             {
-                line.SetPosition(1, ray.GetPoint(maxDistance));
+                line.SetPosition(1, ray.GetPoint(0));
             }
 
             yield return null;
