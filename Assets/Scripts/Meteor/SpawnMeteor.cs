@@ -19,8 +19,8 @@ public class SpawnMeteor : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		attractor = player.GetComponent<FauxGravityAttractor> ();
 
-		InvokeRepeating ("spawn", spawnTime, spawnTime);
-		InvokeRepeating ("gravity", gravityChangeInterval, gravityChangeInterval);
+		Invoke ("spawn", spawnTime);
+		Invoke ("gravity", gravityChangeInterval);
 	}
 	
 	void Update () {
@@ -42,11 +42,14 @@ public class SpawnMeteor : MonoBehaviour {
             meteorObject.transform.parent = gameObject.transform;
             meteorCounter++;
 		}
-	}
+        
+        Invoke("spawn", spawnTime);
+    }
 
 	//change gravity
 	void gravity()
 	{
 		attractor.gravity += gravityChange;
-	}
+        Invoke("gravity", gravityChangeInterval);
+    }
 }
