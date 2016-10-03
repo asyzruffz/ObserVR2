@@ -39,6 +39,7 @@ public class Warning : MonoBehaviour {
                 if(viewportPos.z < 0)
                 {
                     screenX = -Mathf.Sign(screenX);
+                    screenY = -screenY;
                 }
 
                 instances[i].transform.localPosition = new Vector3(screenX * 180, screenY * 180, transform.localPosition.z);

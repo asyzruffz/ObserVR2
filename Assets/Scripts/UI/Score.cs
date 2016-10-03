@@ -15,6 +15,7 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        scoreText.GetComponent<Text>().text = "Score: " + score;
+        scoreText.GetComponent<Text>().text = "Score: " + score + "\tHighscore: " + Director.Instance.HighScore;
+        Director.Instance.SetHighScore(score);
     }
 }

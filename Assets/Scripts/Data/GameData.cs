@@ -6,5 +6,5 @@ using System.Collections;
 public class GameData
 {
 
-    public int HighScore;
+    public int highscore;
 }

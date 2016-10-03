@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
-public class Director : MonoBehaviour {
+public class Director : Singleton<Director> {
 
-
+    private GameData data = new GameData();
 
 	void Start ()
     {
-	
-	}
+        Load();
+    }
 	
 	void Update ()
+    {
+        LinkSatellites();
+    }
+
+    private void LinkSatellites()
     {
         Transform first = null;
         Transform prev = null;
@@ -24,11 +30,43 @@ public class Director : MonoBehaviour {
                     first = obj.transform;
                     prev = first;
                 }
-                
+
                 prev.GetComponent<SphericalMovement>().FacingTowards(obj.transform);
                 obj.GetComponent<SphericalMovement>().FacingTowards(first);
                 prev = obj.transform;
             }
+        }
+    }
+
+    public void SetHighScore(int score)
+    {
+        if(score > data.highscore)
+        {
+            data.highscore = score;
+            Save();
+        }
+    }
+
+    public int HighScore { get { return data.highscore; } }
+
+    public void Save()
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/GameInfo.dat");
+
+        bf.Serialize(file, data);
+        file.Close();
+    }
+
+    public void Load()
+    {
+        if (File.Exists(Application.persistentDataPath + "/GameInfo.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/GameInfo.dat", FileMode.Open);
+
+            data = (GameData)bf.Deserialize(file);
+            file.Close();
         }
     }
 }
