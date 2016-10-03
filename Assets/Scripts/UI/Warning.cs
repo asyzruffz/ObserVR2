@@ -42,6 +42,13 @@ public class Warning : MonoBehaviour {
                     screenY = -screenY;
                 }
 
+                Vector2 adjust = new Vector2(screenX, screenY);
+                if(adjust.magnitude > 1)
+                {
+                    screenX = adjust.normalized.x;
+                    screenY = adjust.normalized.y;
+                }
+
                 instances[i].transform.localPosition = new Vector3(screenX * 180, screenY * 180, transform.localPosition.z);
             }
             else
