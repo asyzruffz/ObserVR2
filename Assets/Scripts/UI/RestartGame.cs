@@ -10,6 +10,7 @@ public class RestartGame : MonoBehaviour
 
     private Text restartText;
     private float timer = 0;
+    private bool timing = false;
 
     void Start()
     {
@@ -20,16 +21,29 @@ public class RestartGame : MonoBehaviour
     void Update()
     {
         if (health.lives <= 0)
+            timing = true;
+
+        if (timing)
         {
-            int remain = 5 - (int)timer;
-            restartText.text = "Wait " + remain + " seconds to continue";
-            timer += Time.deltaTime;
+            if (timer < 5)
+            {
+                int remain = 5 - (int)timer;
+                restartText.text = "Wait " + remain + " seconds to continue";
+                timer += Time.deltaTime;
+            }
+            else if (timer > 5)
+            {
+                timing = false;
+            }
+        }
+        else
+        {
+            restartText.text = "";
         }
     }
 
     void OnStartGame()
     {
         timer = 0;
-        restartText.text = "";
     }
 }

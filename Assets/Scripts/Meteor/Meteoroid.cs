@@ -22,6 +22,7 @@ public class Meteoroid : MonoBehaviour {
     void Start()
     {
         select = GetComponent<Selectable>();
+        Director.Instance.endEvent += OnExplode;
     }
 	
 	void Update ()
@@ -52,9 +53,23 @@ public class Meteoroid : MonoBehaviour {
         boom.transform.parent = transform.parent;
 
         SelectionManager.Instance.ClearSelection();
+        Director.Instance.endEvent -= OnExplode;
         SpawnMeteor.meteorCounter--;
         Destroy(gameObject);
+    }
 
+    public void OnHitPlayer()
+    {
+        var player = GameObject.FindWithTag("Player");
+        if (player.GetComponent<CameraShake>() != null)
+        {
+            player.GetComponent<CameraShake>().ShakeCamera();
+        }
+        
+        SelectionManager.Instance.ClearSelection();
+        Director.Instance.endEvent -= OnExplode;
+        SpawnMeteor.meteorCounter--;
+        Destroy(gameObject);
     }
 
     private float DamagePerSecond()

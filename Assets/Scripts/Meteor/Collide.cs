@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Collide : MonoBehaviour {
 
-    public Collider hud;
+    private Collider playerCollider;
 
 	GameObject player;
 	AudioSource[] aSource;
@@ -15,7 +15,7 @@ public class Collide : MonoBehaviour {
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 
-		hud = player.GetComponent<Collider>();
+		playerCollider = player.GetComponent<Collider>();
 		playerHealth = player.GetComponentInChildren<PlayerHealth> ();
 
 		//to play different audio
@@ -29,9 +29,9 @@ public class Collide : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter(Collider abc)
+	void OnTriggerEnter(Collider collidedObject)
 	{
-		if(abc.Equals(hud))
+		if(collidedObject.Equals(playerCollider))
 		{
 			if (playerHealth.lives == 1) {
 				AudioSource.PlayClipAtPoint (deathSound.clip, transform.position);
@@ -40,9 +40,7 @@ public class Collide : MonoBehaviour {
 			}
 
 			playerHealth.lives--;
-			SpawnMeteor.meteorCounter--;
-            SelectionManager.Instance.ClearSelection();
-            Destroy(gameObject);
+			GetComponent<Meteoroid>().OnHitPlayer();
 		}
 	}
 }

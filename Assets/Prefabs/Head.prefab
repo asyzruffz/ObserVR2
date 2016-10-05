@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &184334
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.68235296, b: 0.14509805, a: 1}
+  m_Color: {r: 0, g: 0.68235296, b: 0.14509805, a: 0.39215687}
   m_RaycastTarget: 1
   m_Texture: {fileID: 0}
   fillPercent: 100
@@ -654,7 +654,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Wait 5 seconds to Restart
+  m_Text: 
 --- !u!124 &12410754
 Behaviour:
   m_ObjectHideFlags: 1

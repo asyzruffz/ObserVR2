@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour {
     
     void Start () {
         Director.Instance.startEvent += ResetHealth;
+        Director.Instance.endEvent += ResetHealth;
     }
 
 	void Update () {
@@ -32,7 +33,6 @@ public class PlayerHealth : MonoBehaviour {
         if(lives <= 0 && Director.Instance.inGame)
         {
             Director.Instance.inGame = false;
-            restart.SetActive(true);
         }
     }
 
