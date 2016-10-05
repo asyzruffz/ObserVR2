@@ -441,9 +441,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11455764, guid: 569abf4a235f4dc428819f2c6ab4be11, type: 2}
-      propertyPath: warningDistance
-      value: 15
+    - target: {fileID: 8239804, guid: 569abf4a235f4dc428819f2c6ab4be11, type: 2}
+      propertyPath: m_Volume
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 569abf4a235f4dc428819f2c6ab4be11, type: 2}
