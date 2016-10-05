@@ -9,6 +9,7 @@ public class Meteoroid : MonoBehaviour {
 
     private Selectable select;
     private bool exploded = false;
+    private AudioSource explodeSound;
 
 	void Awake ()
     {
@@ -22,6 +23,7 @@ public class Meteoroid : MonoBehaviour {
     void Start()
     {
         select = GetComponent<Selectable>();
+        explodeSound = GetComponent<AudioSource>();
         Director.Instance.endEvent += OnExplode;
         FindObjectOfType<PlayerStatus>().hitEvent += OnHitPlayer;
     }
@@ -52,6 +54,7 @@ public class Meteoroid : MonoBehaviour {
 
         GameObject boom = (GameObject)Instantiate(destroyEffect, transform.position, transform.rotation);
         boom.transform.parent = transform.parent;
+        AudioSource.PlayClipAtPoint(explodeSound.clip, transform.position);
 
         SelectionManager.Instance.ClearSelection();
         Director.Instance.endEvent -= OnExplode;
