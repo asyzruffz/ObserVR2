@@ -14,6 +14,7 @@ public class RestartGame : MonoBehaviour
     void Start()
     {
         restartText = GetComponent<Text>();
+        Director.Instance.startEvent += OnStartGame;
     }
 
     void Update()
@@ -21,18 +22,14 @@ public class RestartGame : MonoBehaviour
         if (health.lives <= 0)
         {
             int remain = 5 - (int)timer;
-            restartText.text = "Wait " + remain + " seconds to Restart";
+            restartText.text = "Wait " + remain + " seconds to continue";
             timer += Time.deltaTime;
-
-            Invoke("Restart", 5.0f);
-            health.ResetHealth();
         }
     }
 
-    void Restart()
+    void OnStartGame()
     {
         timer = 0;
-        SpawnMeteor.meteorCounter = 0;
-        SceneManager.LoadScene("Game");
+        restartText.text = "";
     }
 }

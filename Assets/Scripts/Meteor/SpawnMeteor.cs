@@ -15,36 +15,30 @@ public class SpawnMeteor : MonoBehaviour {
 
 	public float gravityChangeInterval; //the time until gravity is increased
 	public float gravityChange; //the speed of gravity increased
-
-    private bool spawning = false;
-
+    
 	void Start () {
         if(player == null)
         {
             player = FindObjectOfType<FauxGravityAttractor>();
         }
-	}
+        Director.Instance.startEvent += OnStartGame;
+        Director.Instance.endEvent += OnStopGame;
+    }
 	
 	void Update () {
-        if (Director.Instance.inGame && !spawning)
-        {
-            spawning = true;
-            StartGame();
-        }
-        else if(!Director.Instance.inGame)
-        {
-            StopGame();
-            spawning = false;
-        }
+        
 	}
 
-    void StartGame()
+    void OnStartGame()
     {
-        Invoke("spawn", 0);
-        Invoke("gravity", gravityChangeInterval);
+        meteorCounter = 0;
+        player.gravity = 0.1f;
+
+        Invoke("spawn", 3);
+        Invoke("gravity", gravityChangeInterval + 3);
     }
 
-    void StopGame()
+    void OnStopGame()
     {
         CancelInvoke("spawn");
         CancelInvoke("gravity");

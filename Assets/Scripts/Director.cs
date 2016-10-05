@@ -7,15 +7,35 @@ public class Director : Singleton<Director> {
     public bool inGame = false;
 
     private GameData data = new GameData();
+    private bool playing = false;
 
-	void Start ()
+    public delegate void StartGameDelegate();
+    public delegate void EndGameDelegate();
+    public event StartGameDelegate startEvent;
+    public event EndGameDelegate endEvent;
+    
+    void Start ()
     {
         Load();
     }
 	
 	void Update ()
     {
-        if(inGame)
+        // Call the event for starting and ending the game
+        if (inGame && !playing)
+        {
+            playing = true;
+            if (startEvent != null)
+                startEvent();
+        }
+        else if(!inGame && playing)
+        {
+            playing = false;
+            if (endEvent != null)
+                endEvent();
+        }
+
+        if (inGame)
         {
             LinkSatellites();
         }

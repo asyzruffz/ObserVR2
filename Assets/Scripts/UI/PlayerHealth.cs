@@ -15,6 +15,10 @@ public class PlayerHealth : MonoBehaviour {
         maxLives = lives;
 	}
     
+    void Start () {
+        Director.Instance.startEvent += ResetHealth;
+    }
+
 	void Update () {
         if(Director.Instance.inGame)
         {
@@ -32,7 +36,7 @@ public class PlayerHealth : MonoBehaviour {
         }
     }
 
-    public void ResetHealth()
+    void ResetHealth()
     {
         lives = maxLives;
     }
