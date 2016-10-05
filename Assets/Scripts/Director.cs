@@ -14,6 +14,12 @@ public class Director : Singleton<Director> {
 	void Update ()
     {
         LinkSatellites();
+
+        // Pressing back button exit the game
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private void LinkSatellites()
