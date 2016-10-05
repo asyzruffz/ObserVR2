@@ -39,7 +39,7 @@ public class Laser : MonoBehaviour {
             {
                 line.SetPosition(1, hit.point);
                 if(hit.transform.GetComponent<Meteoroid>())
-                {
+                { // If luckily Meteoroid hit the green laser, it explode
                     hit.transform.GetComponent<Meteoroid>().OnExplode();
                 }
             }

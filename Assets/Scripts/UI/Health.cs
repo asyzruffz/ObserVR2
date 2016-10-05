@@ -2,10 +2,10 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerHealth : MonoBehaviour {
+public class Health : MonoBehaviour {
     
     public int lives = 4;
-    public GameObject restart;
+    public PlayerStatus player;
 
     private Text livesText;
     private int maxLives;
@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour {
     void Start () {
         Director.Instance.startEvent += ResetHealth;
         Director.Instance.endEvent += ResetHealth;
+        player.hitEvent += OnHit;
     }
 
 	void Update () {
@@ -39,5 +40,10 @@ public class PlayerHealth : MonoBehaviour {
     void ResetHealth()
     {
         lives = maxLives;
+    }
+
+    void OnHit()
+    {
+        lives--;
     }
 }

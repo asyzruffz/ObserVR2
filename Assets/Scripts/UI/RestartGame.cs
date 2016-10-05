@@ -6,7 +6,7 @@ using System.Collections;
 public class RestartGame : MonoBehaviour
 {
 
-    public PlayerHealth health;
+    public Health health;
 
     private Text restartText;
     private float timer = 0;

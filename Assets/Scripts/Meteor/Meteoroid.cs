@@ -23,6 +23,7 @@ public class Meteoroid : MonoBehaviour {
     {
         select = GetComponent<Selectable>();
         Director.Instance.endEvent += OnExplode;
+        FindObjectOfType<PlayerStatus>().hitEvent += OnHitPlayer;
     }
 	
 	void Update ()
@@ -35,6 +36,7 @@ public class Meteoroid : MonoBehaviour {
         if(hardness <= 0 && !exploded)
         {
             OnExplode();
+            FindObjectOfType<Score>().score += 10;
         }
 	}
 
@@ -42,7 +44,6 @@ public class Meteoroid : MonoBehaviour {
     {
         exploded = true;
 
-        FindObjectOfType<Score>().score += 10;
         var player = GameObject.FindWithTag("Player");
         if (player.GetComponent<CameraShake>() != null)
         {
@@ -54,20 +55,16 @@ public class Meteoroid : MonoBehaviour {
 
         SelectionManager.Instance.ClearSelection();
         Director.Instance.endEvent -= OnExplode;
+        FindObjectOfType<PlayerStatus>().hitEvent -= OnHitPlayer;
         SpawnMeteor.meteorCounter--;
         Destroy(gameObject);
     }
 
     public void OnHitPlayer()
     {
-        var player = GameObject.FindWithTag("Player");
-        if (player.GetComponent<CameraShake>() != null)
-        {
-            player.GetComponent<CameraShake>().ShakeCamera();
-        }
-        
         SelectionManager.Instance.ClearSelection();
         Director.Instance.endEvent -= OnExplode;
+        FindObjectOfType<PlayerStatus>().hitEvent -= OnHitPlayer;
         SpawnMeteor.meteorCounter--;
         Destroy(gameObject);
     }
