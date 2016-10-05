@@ -952,6 +952,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 0}
+  alwaysFacing: 1
+  facingDirection: {x: 0, y: -1}
 --- !u!114 &11475638
 MonoBehaviour:
   m_ObjectHideFlags: 1
