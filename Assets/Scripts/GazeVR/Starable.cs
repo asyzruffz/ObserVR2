@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Collider), typeof(EventTrigger))]
 public class Starable : MonoBehaviour, IGvrGazeResponder
 {
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Selectable))]
 public class ShowSelected : MonoBehaviour {
 
     public Material materialSelected;
