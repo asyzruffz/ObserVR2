@@ -46,7 +46,7 @@ public class SelectionManager : Singleton<SelectionManager>
         foreach(GameObject sel in nodes)
         {
             if(sel != null)
-                sel.GetComponent<Selectable>().connected = false;
+                sel.GetComponent<Selectable>().Clear();
         }
         nodes.Clear();
 

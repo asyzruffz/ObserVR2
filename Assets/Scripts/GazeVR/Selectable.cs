@@ -24,14 +24,20 @@ public class Selectable : MonoBehaviour {
             activationTimer = 0;
         }
 
-        if (activationTimer > activeTime)
-            selected = false;
-
         if (selected)
         {
             activationTimer += Time.deltaTime;
             if (!connected)
                 SelectionManager.Instance.AddToSelection(gameObject);
         }
+
+        if (activationTimer > activeTime)
+            selected = false;
+    }
+
+    public void Clear()
+    {
+        selected = false;
+        connected = false;
     }
 }
