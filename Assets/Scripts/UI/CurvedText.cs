@@ -30,7 +30,7 @@ public class CurvedText : Text
 	private float _circumference = -1;
     private float dir { get { return inside ? -1 : 1; } }
 
-	protected override void OnValidate()
+	/*protected override void OnValidate()
 	{
 		base.OnValidate();
 		if(radius <= 0.0f)
@@ -41,7 +41,7 @@ public class CurvedText : Text
 		{
 			scaleFactor = 0.001f;
 		}
-	}
+	}*/
 		
 	protected override void OnPopulateMesh(VertexHelper vh)
 	{	
