@@ -45,7 +45,8 @@ public class PlayerStatus : MonoBehaviour {
         if(warning && !warnSounding)
         {
             warnSounding = true;
-            AudioSource.PlayClipAtPoint(warningSound.clip, transform.position);
+            AudioSource.PlayClipAtPoint(warningSound.clip, transform.position, 0.3f);
+            StartCoroutine(ResetWarning());
         }
     }
 
@@ -82,5 +83,11 @@ public class PlayerStatus : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         blood.FadeOut(1f);
         yield return new WaitForSeconds(1f);
+    }
+
+    IEnumerator ResetWarning()
+    {
+        yield return new WaitForSeconds(3f);
+        warnSounding = false;
     }
 }
