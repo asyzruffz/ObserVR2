@@ -693,6 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a60278e122a4a41a5c213b821f897d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood: {fileID: 11438712}
 --- !u!114 &11467652
 MonoBehaviour:
   m_ObjectHideFlags: 1

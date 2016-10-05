@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerStatus : MonoBehaviour {
 
+    public ImageFade blood;
+
     public delegate void HitDelegate();
     public event HitDelegate hitEvent;
 
@@ -44,5 +46,16 @@ public class PlayerStatus : MonoBehaviour {
         {
             AudioSource.PlayClipAtPoint(painSound.clip, transform.position);
         }
+
+        StartCoroutine(Dizzy());
+    }
+
+
+    IEnumerator Dizzy()
+    {
+        blood.FadeIn(0.5f);
+        yield return new WaitForSeconds(0.5f);
+        blood.FadeOut(1f);
+        yield return new WaitForSeconds(1f);
     }
 }
