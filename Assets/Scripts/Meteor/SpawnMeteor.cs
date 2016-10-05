@@ -2,33 +2,56 @@
 using System.Collections;
 
 public class SpawnMeteor : MonoBehaviour {
+
 	public float spawnTime; //Time until next meteor spawned
 	public float meteorLimit; //to limit number of meteor flying towrds player
 	public GameObject meteor; //for the static variable of meteorCounter
 	public static int meteorCounter; //Collide.cs will use it too
-	public GameObject player; //for gravity attractor purpose
-	public FauxGravityAttractor attractor; //gravity attractor purpose
+	public FauxGravityAttractor player; //gravity attractor purpose
+
 	public float radius;  //the radius of meteor will spawned
     [Range(0,180)]
     public float angleRange = 180f;
 
 	public float gravityChangeInterval; //the time until gravity is increased
 	public float gravityChange; //the speed of gravity increased
-    
-	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player");
-		attractor = player.GetComponent<FauxGravityAttractor> ();
 
-		Invoke ("spawn", spawnTime);
-		Invoke ("gravity", gravityChangeInterval);
+    private bool spawning = false;
+
+	void Start () {
+        if(player == null)
+        {
+            player = FindObjectOfType<FauxGravityAttractor>();
+        }
 	}
 	
 	void Update () {
-		
+        if (Director.Instance.inGame && !spawning)
+        {
+            spawning = true;
+            StartGame();
+        }
+        else if(!Director.Instance.inGame)
+        {
+            StopGame();
+            spawning = false;
+        }
 	}
 
-	//spawn meteor
-	void spawn()
+    void StartGame()
+    {
+        Invoke("spawn", 0);
+        Invoke("gravity", gravityChangeInterval);
+    }
+
+    void StopGame()
+    {
+        CancelInvoke("spawn");
+        CancelInvoke("gravity");
+    }
+
+    //spawn meteor
+    void spawn()
 	{
 		if (meteorCounter < meteorLimit) {
 
@@ -49,7 +72,7 @@ public class SpawnMeteor : MonoBehaviour {
 	//change gravity
 	void gravity()
 	{
-		attractor.gravity += gravityChange;
+		player.gravity += gravityChange;
         Invoke("gravity", gravityChangeInterval);
     }
 }

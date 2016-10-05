@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Linq;
 
 public class MenuValidator : MonoBehaviour
 {
+    public GameObject playButton;
+    public GameObject exitButton;
 
     private string clickPlayCommand;
     private string clickExitCommand;
@@ -14,8 +15,6 @@ public class MenuValidator : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //clickPlayCommand = "(Star-){3,}Play";
-        //clickExitCommand = "(Star-){3,}Exit";
         clickPlayCommand = "(?=.*P-)(?=.*L-)(?=.*A-)(?=.*Y-)";
         clickExitCommand = "(?=.*E-)(?=.*X-)(?=.*I-)(?=.*T-)";
     }
@@ -33,14 +32,25 @@ public class MenuValidator : MonoBehaviour
             exitClicked = true;
             Invoke("ClickExit", 1);
         }
+
+        if(Director.Instance.inGame)
+        {
+            playButton.SetActive(false);
+            exitButton.SetActive(false);
+        }
+        else
+        {
+            playButton.SetActive(true);
+            exitButton.SetActive(true);
+        }
     }
 
     private void ClickPlay()
     {
-        //SceneManager.LoadScene("Level");
         SelectionManager.Instance.ClearSelection();
         playClicked = false;
         Debug.Log("Clicked PLAY");
+        Director.Instance.inGame = true;
     }
 
     private void ClickExit()

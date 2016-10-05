@@ -8,19 +8,32 @@ public class PlayerHealth : MonoBehaviour {
     public GameObject restart;
 
     private Text livesText;
-    private bool dead = false;
+    private int maxLives;
 
     void Awake () {
         livesText = GetComponent<Text> ();
+        maxLives = lives;
 	}
     
 	void Update () {
-		livesText.text = "Lives: " + lives;
-
-        if(!dead && lives <= 0)
+        if(Director.Instance.inGame)
         {
-            dead = true;
+            livesText.text = "Lives: " + lives;
+        }
+        else
+        {
+            livesText.text = "";
+        }
+
+        if(lives <= 0 && Director.Instance.inGame)
+        {
+            Director.Instance.inGame = false;
             restart.SetActive(true);
         }
+    }
+
+    public void ResetHealth()
+    {
+        lives = maxLives;
     }
 }

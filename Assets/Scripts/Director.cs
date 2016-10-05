@@ -4,6 +4,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class Director : Singleton<Director> {
 
+    public bool inGame = false;
+
     private GameData data = new GameData();
 
 	void Start ()
@@ -13,7 +15,10 @@ public class Director : Singleton<Director> {
 	
 	void Update ()
     {
-        LinkSatellites();
+        if(inGame)
+        {
+            LinkSatellites();
+        }
 
         // Pressing back button exit the game
         if (Input.GetKeyDown(KeyCode.Escape))

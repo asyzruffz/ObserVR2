@@ -25,6 +25,7 @@ public class RestartGame : MonoBehaviour
             timer += Time.deltaTime;
 
             Invoke("Restart", 5.0f);
+            health.ResetHealth();
         }
     }
 
