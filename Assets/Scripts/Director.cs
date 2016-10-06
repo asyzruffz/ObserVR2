@@ -13,7 +13,12 @@ public class Director : Singleton<Director> {
     public delegate void EndGameDelegate();
     public event StartGameDelegate startEvent;
     public event EndGameDelegate endEvent;
-    
+
+    protected override void SingletonAwake()
+    {
+
+    }
+
     void Start ()
     {
         Load();
