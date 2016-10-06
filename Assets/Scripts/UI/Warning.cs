@@ -6,6 +6,8 @@ public class Warning : MonoBehaviour {
 
     public Camera cam;
     public GameObject indicator;
+    public float radiusBorder = 180f;
+    public bool rotateTowards = true;
 
     private int num = 5; 
     private List<GameObject> instances = new List<GameObject>();
@@ -49,7 +51,12 @@ public class Warning : MonoBehaviour {
                     screenY = adjust.normalized.y;
                 }
 
-                instances[i].transform.localPosition = new Vector3(screenX * 180, screenY * 180, transform.localPosition.z);
+                if (rotateTowards)
+                {
+                    instances[i].transform.localEulerAngles = new Vector3(0, 0, Mathf.Atan2(screenY, screenX) * Mathf.Rad2Deg);
+                }
+
+                instances[i].transform.localPosition = new Vector3(screenX * radiusBorder, screenY * radiusBorder, transform.localPosition.z);
             }
             else
             {

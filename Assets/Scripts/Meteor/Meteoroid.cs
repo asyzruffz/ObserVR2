@@ -55,6 +55,7 @@ public class Meteoroid : MonoBehaviour {
         GameObject boom = (GameObject)Instantiate(destroyEffect, transform.position, transform.rotation);
         boom.transform.parent = transform.parent;
         AudioSource.PlayClipAtPoint(explodeSound.clip, transform.position);
+        //explodeSound.Play();
 
         SelectionManager.Instance.ClearSelection();
         Director.Instance.endEvent -= OnExplode;

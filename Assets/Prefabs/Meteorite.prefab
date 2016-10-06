@@ -345,6 +345,22 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 5098db3636fe1c04797460b3b3c24991, type: 3}
+    - target: {fileID: 0}
+      propertyPath: sourceClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5098db3636fe1c04797460b3b3c24991, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 144854}

@@ -9,9 +9,9 @@ public class PlayerStatus : MonoBehaviour {
     public delegate void HitDelegate();
     public event HitDelegate hitEvent;
 
-    AudioSource painSound;
-    AudioSource deathSound;
-    AudioSource warningSound;
+    GvrAudioSource painSound;
+    GvrAudioSource deathSound;
+    GvrAudioSource warningSound;
 
     private bool warning = false;
     private bool warnSounding = false;
@@ -20,7 +20,7 @@ public class PlayerStatus : MonoBehaviour {
         hitEvent += OnHit;
 
         //to play different audio
-        AudioSource[] aSource = GetComponents<AudioSource>();
+        GvrAudioSource[] aSource = GetComponents<GvrAudioSource>();
         painSound = aSource[0]; //will give error but still working
         deathSound = aSource[1];
         warningSound = aSource[2];
@@ -45,7 +45,7 @@ public class PlayerStatus : MonoBehaviour {
         if(warning && !warnSounding)
         {
             warnSounding = true;
-            AudioSource.PlayClipAtPoint(warningSound.clip, transform.position, 0.3f);
+            warningSound.Play();
             StartCoroutine(ResetWarning());
         }
     }
@@ -66,11 +66,11 @@ public class PlayerStatus : MonoBehaviour {
         int lives = GetComponentInChildren<Health>().lives;
         if (lives == 0)
         {
-            AudioSource.PlayClipAtPoint(deathSound.clip, transform.position);
+            deathSound.Play();
         }
         else
         {
-            AudioSource.PlayClipAtPoint(painSound.clip, transform.position);
+            painSound.Play();
         }
 
         StartCoroutine(Dizzy());
