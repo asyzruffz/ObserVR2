@@ -7,11 +7,13 @@ public class Health : MonoBehaviour {
     public int lives = 4;
     public PlayerStatus player;
 
-    private Text livesText;
+    //private Text livesText;
+    private CircularPercentage percent;
     private int maxLives;
 
     void Awake () {
-        livesText = GetComponent<Text> ();
+        //livesText = GetComponent<Text>();
+        percent = GetComponent<CircularPercentage>();
         maxLives = lives;
 	}
     
@@ -22,13 +24,17 @@ public class Health : MonoBehaviour {
     }
 
 	void Update () {
-        if(Director.Instance.inGame)
+        SetVisible(Director.Instance.inGame);
+
+        if (Director.Instance.inGame)
         {
-            livesText.text = "Lives: " + lives;
+            //livesText.text = "Lives: " + lives;
+            percent.percentage = (float)lives / maxLives * 100;
         }
         else
         {
-            livesText.text = "";
+            //livesText.text = "";
+            percent.percentage = 100;
         }
 
         if(lives <= 0 && Director.Instance.inGame)
@@ -45,5 +51,11 @@ public class Health : MonoBehaviour {
     void OnHit()
     {
         lives--;
+    }
+
+    void SetVisible(bool visible)
+    {
+        foreach (Transform child in transform)
+            child.gameObject.SetActive(visible);
     }
 }

@@ -41,9 +41,17 @@ public class UICircle : Graphic
         }
     }
 
+    private int oldPercent = 100;
+
     void Update()
     {
         this.thickness = (int)Mathf.Clamp(this.thickness, 0, rectTransform.rect.width / 2);
+
+        if(fillPercent != oldPercent)
+        {
+            SetVerticesDirty();
+            oldPercent = fillPercent;
+        }
     }
 
     protected UIVertex[] SetVbo(Vector2[] vertices, Vector2[] uvs)
