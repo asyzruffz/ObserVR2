@@ -60,7 +60,7 @@ public class Meteoroid : MonoBehaviour {
         SelectionManager.Instance.ClearSelection();
         Director.Instance.endEvent -= OnExplode;
         FindObjectOfType<PlayerStatus>().hitEvent -= OnHitPlayer;
-        SpawnMeteor.meteorCounter--;
+        MeteorManager.meteorCounter--;
         Destroy(gameObject);
     }
 
@@ -69,7 +69,7 @@ public class Meteoroid : MonoBehaviour {
         SelectionManager.Instance.ClearSelection();
         Director.Instance.endEvent -= OnExplode;
         FindObjectOfType<PlayerStatus>().hitEvent -= OnHitPlayer;
-        SpawnMeteor.meteorCounter--;
+        MeteorManager.meteorCounter--;
         Destroy(gameObject);
     }
 

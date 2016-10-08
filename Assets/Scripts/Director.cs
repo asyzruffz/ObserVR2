@@ -40,37 +40,10 @@ public class Director : Singleton<Director> {
                 endEvent();
         }
 
-        if (inGame)
-        {
-            LinkSatellites();
-        }
-
         // Pressing back button exit the game
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
-        }
-    }
-
-    private void LinkSatellites()
-    {
-        Transform first = null;
-        Transform prev = null;
-        foreach (var obj in SelectionManager.Instance.nodes)
-        {
-            if (obj.GetComponent<SphericalMovement>() != null)
-            {
-                // Set the first to wrap up later
-                if (first == null)
-                {
-                    first = obj.transform;
-                    prev = first;
-                }
-
-                prev.GetComponent<SphericalMovement>().FacingTowards(obj.transform);
-                obj.GetComponent<SphericalMovement>().FacingTowards(first);
-                prev = obj.transform;
-            }
         }
     }
 

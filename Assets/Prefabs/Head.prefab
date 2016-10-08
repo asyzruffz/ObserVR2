@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.68235296, b: 0.14509805, a: 0.39215687}
+  m_Color: {r: 0, g: 0.6258823, b: 0.68235296, a: 0.39215687}
   m_RaycastTarget: 1
   m_Texture: {fileID: 0}
   fillPercent: 100
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c63f8350cb04a2683f8606cc8d36f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reticleSegments: 20
+  reticleSegments: 4
   reticleGrowthSpeed: 8
 --- !u!114 &11478640
 MonoBehaviour:

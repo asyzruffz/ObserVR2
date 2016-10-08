@@ -13,7 +13,7 @@ public class MeteorIndicator : MonoBehaviour {
 	void Update () {
         if(Director.Instance.inGame)
         {
-            if (SpawnMeteor.meteorCounter > 0)
+            if (MeteorManager.meteorCounter > 0)
             {
                 indicator.text = "Incoming Meteor Attack!";
             }

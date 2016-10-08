@@ -5,7 +5,8 @@ using System.Text.RegularExpressions;
 
 public class SelectionManager : Singleton<SelectionManager>
 {
-    public bool hideLineForSameObjs = false;
+    //public bool hideLineForSameObjs = false;
+    public bool showLines = false;
     public GameObject lineType;
     public List<GameObject> nodes = new List<GameObject>();
 
@@ -30,7 +31,8 @@ public class SelectionManager : Singleton<SelectionManager>
     {
         obj.GetComponent<Selectable>().connected = true;
         nodes.Add(obj);
-        if (hideLineForSameObjs && nodes.Count > 1)
+
+        /*if (hideLineForSameObjs && nodes.Count > 1)
         {
             if(nodes[nodes.Count - 2].name != nodes[nodes.Count - 1].name)
                 CreateConnectionLine();
@@ -38,8 +40,13 @@ public class SelectionManager : Singleton<SelectionManager>
         else
         {
             CreateConnectionLine();
+        }*/
+
+        if (showLines)
+        {
+            CreateConnectionLine();
         }
-}
+    }
 
     public void ClearSelection ()
     {

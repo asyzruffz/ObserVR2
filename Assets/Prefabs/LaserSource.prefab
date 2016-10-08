@@ -40,8 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3305448497aa94c9ee0edb2a2dff83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 0
+  on: 1
   maxDistance: 500
+  beamToMax: 1
 --- !u!120 &12042236
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -96,6 +97,14 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8cbd2400722f7b9479ac6e6f64871179, type: 2}
+    - target: {fileID: 0}
+      propertyPath: on
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: beamToMax
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 137024}

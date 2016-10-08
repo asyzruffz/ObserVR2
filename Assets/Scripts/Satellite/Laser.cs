@@ -5,6 +5,7 @@ public class Laser : MonoBehaviour {
 
     public bool on = false;
     public float maxDistance = 50f;
+    public bool beamToMax = false;
 
     private LineRenderer line;
 
@@ -38,14 +39,14 @@ public class Laser : MonoBehaviour {
             if(Physics.Raycast(ray, out hit, maxDistance))
             {
                 line.SetPosition(1, hit.point);
-                if(hit.transform.GetComponent<Meteoroid>())
+                /*if(hit.transform.GetComponent<Meteoroid>())
                 { // If luckily Meteoroid hit the green laser, it explode
                     hit.transform.GetComponent<Meteoroid>().OnExplode();
-                }
+                }*/
             }
             else
             {
-                line.SetPosition(1, ray.GetPoint(0));
+                line.SetPosition(1, beamToMax ? ray.GetPoint(maxDistance) : ray.GetPoint(0));
             }
 
             yield return null;

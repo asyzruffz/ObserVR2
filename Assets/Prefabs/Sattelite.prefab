@@ -31,6 +31,7 @@ GameObject:
   - 114: {fileID: 11454094}
   - 114: {fileID: 11459266}
   - 114: {fileID: 11418724}
+  - 114: {fileID: 11443464}
   m_Layer: 0
   m_Name: Sattelite
   m_TagString: Satellite
@@ -187,6 +188,19 @@ MonoBehaviour:
   laserDamage: 15
   speed: 10
   rotateSpeed: 360
+  chargingLaser: {fileID: 11446802}
+--- !u!114 &11443464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64f59410d6da6f49a9f2d873ad6cf82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserSource: {fileID: 137024, guid: aead38bbedbbbf242897ee3ef9c082b6, type: 2}
 --- !u!114 &11445988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   on: 0
   maxDistance: 500
+  beamToMax: 0
 --- !u!114 &11454094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -345,6 +360,14 @@ Prefab:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: laserSource
+      value: 
+      objectReference: {fileID: 137024, guid: aead38bbedbbbf242897ee3ef9c082b6, type: 2}
+    - target: {fileID: 0}
+      propertyPath: chargingLaser
+      value: 
+      objectReference: {fileID: 11446802}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 134990}

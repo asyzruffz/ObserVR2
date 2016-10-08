@@ -2,12 +2,13 @@
 using UnityEditor;
 using System.Collections;
 
-[CustomEditor(typeof(SpawnMeteor))]
-public class SpawnMeteorEditor : Editor {
+[CustomEditor(typeof(MeteorManager))]
+public class MeteorManagerEditor : Editor
+{
 
     void OnSceneGUI()
     {
-        SpawnMeteor spawner = (SpawnMeteor)target;
+        MeteorManager spawner = (MeteorManager)target;
         Handles.color = Color.yellow;
 
         float angle = spawner.angleRange / 2;

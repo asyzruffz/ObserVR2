@@ -6,6 +6,7 @@ public class SatelliteController : MonoBehaviour {
     public float laserDamage = 15f;
     public float speed = 1.0f;
     public float rotateSpeed = 360.0f;
+    public Laser chargingLaser;
 
     private SphericalMovement movement;
     
@@ -21,10 +22,9 @@ public class SatelliteController : MonoBehaviour {
 
     public void SetLaserEnabled(bool enabled)
     {
-        Laser laser = gameObject.GetComponentInChildren<Laser>();
-        if (laser)
+        if (chargingLaser)
         {
-            laser.on = enabled;
+            chargingLaser.on = enabled;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SpawnMeteor : MonoBehaviour {
+public class MeteorManager : MonoBehaviour {
 
 	public float spawnTime; //Time until next meteor spawned
 	public float meteorLimit; //to limit number of meteor flying towrds player
