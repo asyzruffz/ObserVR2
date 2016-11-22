@@ -3,28 +3,27 @@ using System.Collections;
 
 public class SatelliteController : MonoBehaviour {
 
+	[Header("Movement")]
+	public float speed = 10.0f;
+
+	[Header("Laser")]
     public float laserDamage = 15f;
-    public float speed = 1.0f;
-    public float rotateSpeed = 360.0f;
     public Laser chargingLaser;
 
-    private SphericalMovement movement;
-    
-	void Start () {
-        movement = GetComponent<SphericalMovement>();
-    }
-	
 	void Update () {
-        movement.Translate(0, speed);
-
         SetLaserEnabled(GetComponent<Selectable>().connected);
     }
 
-    public void SetLaserEnabled(bool enabled)
-    {
-        if (chargingLaser)
-        {
+    public void SetLaserEnabled(bool enabled) {
+        if (chargingLaser) {
             chargingLaser.on = enabled;
         }
-    }
+	}
+
+	public void FacingTowards(Transform target) {
+		Vector3 fowardFace = (target.transform.position - transform.position).normalized;
+		if(fowardFace != Vector3.zero) {
+			transform.rotation = Quaternion.LookRotation(fowardFace, transform.up) * Quaternion.Euler(Vector3.right * 90);
+		}
+	}
 }
