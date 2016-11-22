@@ -11,28 +11,24 @@ public class FauxGravityBody : MonoBehaviour {
     private Transform myTransform;
 
 	void Start () {
-        if(attractor == null)
-        {
+        if(attractor == null) {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             attractor = player.GetComponent<FauxGravityAttractor>();
         }
+
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         GetComponent<Rigidbody>().useGravity = false;
         myTransform = transform;
 
-        if(alwaysFacing)
-        {
+        if(alwaysFacing) {
             facingDirection = facingDirection.normalized;
         }
     }
 	
 	void Update () {
-        if (alwaysFacing)
-        {
+        if (alwaysFacing) {
             attractor.Attract(myTransform, facingDirection);
-        }
-        else
-        {
+        } else {
             attractor.Attract(myTransform);
         }
 	}
