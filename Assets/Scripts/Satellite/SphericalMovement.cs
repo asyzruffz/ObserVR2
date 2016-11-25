@@ -24,8 +24,41 @@ public class SphericalMovement : MonoBehaviour
         isStationary = false;
     }
 
+    public void Translate(float x, float y)
+    {
+        Vector3 perpendicular = new Vector3(-direction.y, direction.x);
+        Quaternion verticalRotation = Quaternion.AngleAxis(y * Time.deltaTime, perpendicular);
+        Quaternion horizontalRotation = Quaternion.AngleAxis(x * Time.deltaTime, fixedDirection ? Vector3.up : direction);
+        rotation *= horizontalRotation * verticalRotation;
+    }
+
+    public void Rotate(float amount)
+    {
+        angle += amount * Mathf.Deg2Rad * Time.deltaTime;
+    }
+
     private void UpdatePositionRotation()
     {
         transform.localPosition = rotation * Vector3.forward * radius;
+        /*if (fixedDirection)
+        {
+            Vector3 upwards = transform.localPosition.normalized;
+            Vector3 forward = Vector3.up;
+            //Vector3 forward = new Vector3(upwards.z, -upwards.x, -upwards.y); testing for better alignment failed
+            transform.rotation = Quaternion.LookRotation(forward, upwards);
+        }
+        else
+        {
+            transform.rotation = rotation * Quaternion.LookRotation(direction, Vector3.forward);
+        }*/
+    }
+
+    public void FacingTowards(Transform target)
+    {
+        Vector3 fowardFace = (target.transform.position - transform.position).normalized;
+        if(fowardFace != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(fowardFace, transform.up) * Quaternion.Euler(Vector3.right * 90);
+        }
     }
 }
