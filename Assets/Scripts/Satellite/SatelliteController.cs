@@ -10,7 +10,7 @@ public class SatelliteController : MonoBehaviour {
     public float laserDamage = 15f;
     public Laser chargingLaser;
 
-	void Update () {
+	void Update() {
         SetLaserEnabled(GetComponent<Selectable>().connected);
     }
 
