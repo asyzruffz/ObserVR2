@@ -81,7 +81,7 @@ public class Meteoroid : MonoBehaviour {
         {
             if (node != null && node.gameObject.CompareTag("Satellite"))
             {
-                damage += node.GetComponent<SatelliteController>().laserDamage;
+				damage += node.GetComponent<LaserContainer>().laserDamage;
             }
         }
 

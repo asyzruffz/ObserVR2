@@ -185,10 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0690a344c61ba764b9d47bdf8c31679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserDamage: 15
   speed: 10
-  rotateSpeed: 360
-  chargingLaser: {fileID: 11446802}
 --- !u!114 &11443464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,7 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64f59410d6da6f49a9f2d873ad6cf82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserSource: {fileID: 137024, guid: aead38bbedbbbf242897ee3ef9c082b6, type: 2}
+  laserDamage: 15
+  chargingLaser: {fileID: 11446802}
+  shootingLaser: {fileID: 137024, guid: aead38bbedbbbf242897ee3ef9c082b6, type: 2}
 --- !u!114 &11445988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,8 +224,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   on: 0
-  maxDistance: 500
   beamToMax: 0
+  maxDistance: 500
+  passThrough:
+    serializedVersion: 2
+    m_Bits: 36
 --- !u!114 &11454094
 MonoBehaviour:
   m_ObjectHideFlags: 1

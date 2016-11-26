@@ -167,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac287d038587b145950fdccc418685b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meteorPrefab: {fileID: 144854, guid: b8bc98c8aaf18154695f68983e27648f, type: 2}
   spawnTime: 5
   meteorLimit: 5
-  meteor: {fileID: 144854, guid: b8bc98c8aaf18154695f68983e27648f, type: 2}
   player: {fileID: 1165804644}
   radius: 50
   angleRange: 110
@@ -331,7 +331,7 @@ GameObject:
   - 135: {fileID: 844208473}
   - 114: {fileID: 844208474}
   - 114: {fileID: 844208472}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SatellitesManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,9 +432,9 @@ Prefab:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11465082, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: attractor
+      value: 
+      objectReference: {fileID: 844208474}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
   m_IsPrefabParent: 0

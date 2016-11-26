@@ -18,6 +18,7 @@ public class SatellitesManager : MonoBehaviour
 			GameObject satella = (GameObject)Instantiate(source, direction * radius, Quaternion.identity);
             satella.name = "Satellite";
             satella.transform.parent = gameObject.transform;
+			satella.GetComponent<FauxGravityBody>().attractor = GetComponent<FauxGravityAttractor>();
         }
     }
 }

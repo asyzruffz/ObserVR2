@@ -19,11 +19,13 @@ public class LaserManager : MonoBehaviour
         Transform first = null;
         Transform prev = null;
         foreach (var obj in SelectionManager.Instance.nodes) {
+			// Only concern the Satellite (has SatelliteController component)
 			if (obj.GetComponent<SatelliteController>() != null) {
                 // Set the first to wrap up later
                 if (first == null) {
                     first = obj.transform;
                     prev = first;
+					continue;
                 }
 
 				prev.GetComponent<SatelliteController>().FacingTowards(obj.transform);

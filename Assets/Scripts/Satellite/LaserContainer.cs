@@ -4,59 +4,55 @@ using System.Collections.Generic;
 
 public class LaserContainer : MonoBehaviour
 {
-    public GameObject laserSource;
+	public float laserDamage = 15f;
+	public Laser chargingLaser;
+    public GameObject shootingLaser;
 
     private List<LaserUnit> lasers = new List<LaserUnit>();
 
-    void Start()
-    {
+	void Update() {
+		// Update laser to charge other satellite
+		SetChargingLaserEnabled(GetComponent<Selectable>().connected);
 
-    }
-
-    void Update()
-    {
-        // Update lasers
-        foreach (var laser in lasers)
-        {
-            if (!laser.Update())
-            {
+        // Update lasers to meteor
+        foreach (var laser in lasers) {
+            if (!laser.Update()) {
                 lasers.Remove(laser);
                 break;
             }
         }
 
         // Stop shooting if not connected
-        if(!GetComponent<Selectable>().connected)
-        {
+        if(!GetComponent<Selectable>().connected) {
             StopShooting();
         }
     }
 
-    public void StartShooting(GameObject target)
-    {
-        GameObject laser = (GameObject)Instantiate(laserSource, transform.position, Quaternion.identity);
+	void SetChargingLaserEnabled(bool enabled) {
+		if (chargingLaser) {
+			chargingLaser.on = enabled;
+		}
+	}
+
+    public void StartShooting(GameObject target) {
+        GameObject laser = (GameObject)Instantiate(shootingLaser, transform.position, Quaternion.identity);
         laser.transform.parent = transform;
         laser.name = "Laser";
 
         lasers.Add(new LaserUnit(laser, target));
     }
 
-    public bool IsShooting(GameObject target)
-    {
-        foreach (var laser in lasers)
-        {
-            if (laser.target == target)
-            {
+    public bool IsShooting(GameObject target) {
+        foreach (var laser in lasers) {
+            if (laser.target == target) {
                 return true;
             }
         }
         return false;
     }
 
-    void StopShooting()
-    {
-        foreach(var laser in lasers)
-        {
+    void StopShooting() {
+        foreach(var laser in lasers) {
             laser.Destroy();
         }
         lasers.Clear();
@@ -67,17 +63,14 @@ public class LaserContainer : MonoBehaviour
         public GameObject laser;
         public GameObject target;
 
-        public LaserUnit(GameObject _laser, GameObject _target)
-        {
+        public LaserUnit(GameObject _laser, GameObject _target) {
             laser = _laser;
             target = _target;
         }
 
-        public bool Update()
-        {
+        public bool Update() {
             // No more meteor to shoot
-            if (target == null)
-            {
+            if (target == null) {
                 Destroy();
                 return false;
             }
@@ -92,8 +85,7 @@ public class LaserContainer : MonoBehaviour
             return true;
         }
 
-        public void Destroy()
-        {
+        public void Destroy() {
             GameObject.Destroy(laser);
         }
     }
