@@ -58,7 +58,7 @@ public class LaserManager : MonoBehaviour
             for (int meteIndex = 0; meteIndex < meteorList.Count; meteIndex++) {
                 GameObject meteor = SelectionManager.Instance.nodes[meteorList[meteIndex]];
 
-                LaserContainer laserSatellite = satellite.GetComponent<LaserContainer>();
+                LaserController laserSatellite = satellite.GetComponent<LaserController>();
                 if (!laserSatellite.IsShooting(meteor)) {
                     laserSatellite.StartShooting(meteor);
                 }

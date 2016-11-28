@@ -364,6 +364,7 @@ MonoBehaviour:
   source: {fileID: 134990, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
   amount: 5
   radius: 80
+  angleRange: 80
 --- !u!135 &844208473
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -387,57 +388,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 064bc4be72ed9fb4e920b15b9087a307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 10
+  gravity: 1000
 --- !u!1 &875572138 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 135700, guid: dc56e569a6b52ff4d94ad0594efe8795, type: 2}
   m_PrefabInternal: {fileID: 2107553544}
---- !u!1001 &1071973118
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 455354, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455354, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455354, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 188
-      objectReference: {fileID: 0}
-    - target: {fileID: 455354, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455354, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455354, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455354, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 455354, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11465082, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-      propertyPath: attractor
-      value: 
-      objectReference: {fileID: 844208474}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e8de1247e77737f45951c06a9913aa50, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1079477359
 GameObject:
   m_ObjectHideFlags: 0

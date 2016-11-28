@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class LaserContainer : MonoBehaviour
+public class LaserController : MonoBehaviour
 {
 	public float laserDamage = 15f;
 	public Laser chargingLaser;
