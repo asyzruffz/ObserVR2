@@ -5,24 +5,28 @@ public class SatellitesManager : MonoBehaviour
 {
     public GameObject source;
     public int amount = 10;
-    public float radius = 20;
+	public float radius = 20;
+	[Range(0,180)]
+	public float angleRange = 180f;
 
-    void Start()
-    {
-        for (int i = 0; i < amount; ++i)
-        {
-            GameObject satella = (GameObject)Instantiate(source);
+    void Start() {
+		SphereCollider sphere = GetComponent<SphereCollider>();
+		sphere.radius = radius;
+
+		// Convert angle to normalized [0,90] degrees
+		float verticalLimit = Mathf.Sin(angleRange / 2 * Mathf.Deg2Rad);
+
+        for (int i = 0; i < amount; ++i) {
+			Vector3 direction;
+			do { // Reroll the dice if exceeding limit
+				direction = Random.onUnitSphere;
+			} while(Mathf.Abs(direction.y) > verticalLimit);
+
+			GameObject satella = (GameObject)Instantiate(source, direction * radius, Random.rotation);
             satella.name = "Satellite";
             satella.transform.parent = gameObject.transform;
-
-            Vector3 direction = Random.onUnitSphere;
-            satella.GetComponent<SphericalMovement>().SetRotation(direction * 170.0f);
-            satella.GetComponent<SphericalMovement>().radius = radius;
+			satella.GetComponent<FauxGravityBody>().attractor = GetComponent<FauxGravityAttractor>();
+			satella.GetComponent<SatelliteController> ().amplitude = radius * verticalLimit;
         }
-    }
-
-    void Update()
-    {
-
     }
 }

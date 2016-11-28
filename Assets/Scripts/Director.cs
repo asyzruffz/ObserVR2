@@ -4,6 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class Director : Singleton<Director> {
 
+	[ShowOnly]
     public bool inGame = false;
 
     private GameData data = new GameData();
@@ -14,43 +15,34 @@ public class Director : Singleton<Director> {
     public event StartGameDelegate startEvent;
     public event EndGameDelegate endEvent;
 
-    protected override void SingletonAwake()
-    {
+    protected override void SingletonAwake() {
 
     }
 
-    void Start ()
-    {
+    void Start () {
         Load();
     }
 	
-	void Update ()
-    {
+	void Update () {
         // Call the event for starting and ending the game
-        if (inGame && !playing)
-        {
+        if (inGame && !playing) {
             playing = true;
             if (startEvent != null)
                 startEvent();
-        }
-        else if(!inGame && playing)
-        {
+        } else if(!inGame && playing) {
             playing = false;
             if (endEvent != null)
                 endEvent();
         }
 
         // Pressing back button exit the game
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
         }
     }
 
-    public void SetHighScore(int score)
-    {
-        if(score > data.highscore)
-        {
+    public void SetHighScore(int score) {
+        if(score > data.highscore) {
             data.highscore = score;
             Save();
         }
@@ -58,8 +50,7 @@ public class Director : Singleton<Director> {
 
     public int HighScore { get { return data.highscore; } }
 
-    public void Save()
-    {
+    public void Save() {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/GameInfo.dat");
 
@@ -67,10 +58,8 @@ public class Director : Singleton<Director> {
         file.Close();
     }
 
-    public void Load()
-    {
-        if (File.Exists(Application.persistentDataPath + "/GameInfo.dat"))
-        {
+    public void Load() {
+        if (File.Exists(Application.persistentDataPath + "/GameInfo.dat")) {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/GameInfo.dat", FileMode.Open);
 

@@ -24,7 +24,8 @@ public class CameraShake : MonoBehaviour
 
     bool isRunning = false; // Is the coroutine running right now?
 
-    public bool smooth; // Smooth rotation?
+	public bool smooth; // Smooth rotation?
+	[ConditionalHide("smooth", true)]
     public float smoothAmount = 5f; // Amount to smooth
 
     void Start()

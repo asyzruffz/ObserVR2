@@ -5,7 +5,10 @@ using System.Collections;
 public class FauxGravityBody : MonoBehaviour {
 
     public FauxGravityAttractor attractor;
+	public bool rotateUpwardGravity = true;
+	[ConditionalHide("rotateUpwardGravity")]
     public bool alwaysFacing;
+	[ConditionalHide("alwaysFacing", true)]
     public Vector2 facingDirection;
 
     private Transform myTransform;
@@ -26,10 +29,16 @@ public class FauxGravityBody : MonoBehaviour {
     }
 	
 	void Update () {
-        if (alwaysFacing) {
-            attractor.Attract(myTransform, facingDirection);
-        } else {
-            attractor.Attract(myTransform);
-        }
+		if (rotateUpwardGravity) {
+			attractor.Attract (myTransform, rotateUpwardGravity);
+		} else if (alwaysFacing) {
+			attractor.Attract (myTransform, facingDirection);
+		} else {
+			attractor.Attract (myTransform, rotateUpwardGravity);
+		}
+	}
+
+	void OnValidate() {
+
 	}
 }

@@ -3,9 +3,11 @@ using System.Collections;
 
 public class Laser : MonoBehaviour {
 
-    public bool on = false;
+	public bool on = false;
+	public bool beamToMax = false;
+	[ConditionalHide("beamToMax", true)]
     public float maxDistance = 50f;
-    public bool beamToMax = false;
+	public LayerMask passThrough;
 
     private LineRenderer line;
 
@@ -36,13 +38,9 @@ public class Laser : MonoBehaviour {
             RaycastHit hit;
 
             line.SetPosition(0, transform.position);
-            if(Physics.Raycast(ray, out hit, maxDistance))
+			if(Physics.Raycast(ray, out hit, maxDistance, ~passThrough))
             {
                 line.SetPosition(1, hit.point);
-                /*if(hit.transform.GetComponent<Meteoroid>())
-                { // If luckily Meteoroid hit the green laser, it explode
-                    hit.transform.GetComponent<Meteoroid>().OnExplode();
-                }*/
             }
             else
             {

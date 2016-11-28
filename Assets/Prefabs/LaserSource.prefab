@@ -41,8 +41,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   on: 1
-  maxDistance: 500
   beamToMax: 1
+  maxDistance: 500
+  passThrough:
+    serializedVersion: 2
+    m_Bits: 36
 --- !u!120 &12042236
 LineRenderer:
   m_ObjectHideFlags: 1
