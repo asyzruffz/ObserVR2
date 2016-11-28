@@ -11,8 +11,14 @@ public class LaserController : MonoBehaviour
     private List<LaserUnit> lasers = new List<LaserUnit>();
 
 	void Update() {
+		if (!Director.Instance.inGame) {
+			return; // Skip updating outside gameplay
+		}
+
+		bool connected = GetComponent<Selectable>().connected;
+
 		// Update laser to charge other satellite
-		SetChargingLaserEnabled(GetComponent<Selectable>().connected);
+		SetChargingLaserEnabled(connected);
 
         // Update lasers to meteor
         foreach (var laser in lasers) {
@@ -23,7 +29,7 @@ public class LaserController : MonoBehaviour
         }
 
         // Stop shooting if not connected
-        if(!GetComponent<Selectable>().connected) {
+		if(!connected) {
             StopShooting();
         }
     }

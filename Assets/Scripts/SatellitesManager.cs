@@ -23,7 +23,7 @@ public class SatellitesManager : MonoBehaviour
 				direction = Random.onUnitSphere;
 			} while(Mathf.Abs(direction.y) > verticalLimit);
 
-			GameObject satella = (GameObject)Instantiate(source, direction * radius, Quaternion.identity);
+			GameObject satella = (GameObject)Instantiate(source, direction * radius, Random.rotation);
             satella.name = "Satellite";
             satella.transform.parent = gameObject.transform;
 			satella.GetComponent<FauxGravityBody>().attractor = GetComponent<FauxGravityAttractor>();
