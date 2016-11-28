@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 public class SelectionManager : Singleton<SelectionManager>
 {
     public bool showLines = false;
+    [ConditionalHide("showLines", true)]
     public GameObject lineType;
     public List<GameObject> nodes = new List<GameObject>();
 

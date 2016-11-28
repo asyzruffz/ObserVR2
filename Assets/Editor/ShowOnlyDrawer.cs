@@ -20,7 +20,13 @@ public class ShowOnlyDrawer : PropertyDrawer {
 		case SerializedPropertyType.String:
 			valueStr = prop.stringValue;
 			break;
-		default:
+        case SerializedPropertyType.Vector3:
+            valueStr = prop.vector3Value.ToString();
+            break;
+        case SerializedPropertyType.ObjectReference:
+            valueStr = prop.objectReferenceValue.name;
+            break;
+        default:
 			valueStr = "(not supported)";
 			break;
 		}
