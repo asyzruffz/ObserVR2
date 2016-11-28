@@ -16,7 +16,7 @@ GameObject:
   - 114: {fileID: 11432282}
   - 114: {fileID: 11412310}
   - 114: {fileID: 11418900}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ GameObject:
   - 4: {fileID: 466980}
   - 23: {fileID: 2305554}
   - 102: {fileID: 10200780}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Letter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   - 4: {fileID: 426654}
   - 23: {fileID: 2315508}
   - 102: {fileID: 10240928}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Letter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - 114: {fileID: 11482234}
   - 114: {fileID: 11405008}
   - 114: {fileID: 11481694}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - 114: {fileID: 11403512}
   - 114: {fileID: 11454554}
   - 114: {fileID: 11412072}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,8 @@ GameObject:
   - 4: {fileID: 452590}
   - 54: {fileID: 5447904}
   - 114: {fileID: 11468696}
-  m_Layer: 0
+  - 114: {fileID: 11400210}
+  m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +131,7 @@ GameObject:
   - 4: {fileID: 462904}
   - 23: {fileID: 2348800}
   - 102: {fileID: 10290246}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Letter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +148,7 @@ GameObject:
   - 4: {fileID: 417100}
   - 23: {fileID: 2357354}
   - 102: {fileID: 10297386}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Letter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +171,7 @@ GameObject:
   - 114: {fileID: 11411064}
   - 114: {fileID: 11442736}
   - 114: {fileID: 11442816}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,8 +234,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158662}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7}
+  m_LocalRotation: {x: 0.7071067, y: 1.4210855e-14, z: 1.4210855e-14, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 17}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_Children:
   - {fileID: 403130}
@@ -628,6 +629,18 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &11400210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dff503298dffdf4a872c0dbdb8ffdf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!114 &11403512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -952,6 +965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 0}
+  rotateUpwardGravity: 1
   alwaysFacing: 1
   facingDirection: {x: 0, y: -1}
 --- !u!114 &11475638
