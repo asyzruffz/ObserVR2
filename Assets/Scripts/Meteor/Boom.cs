@@ -6,8 +6,7 @@ public class Boom : MonoBehaviour {
     private float lifetime = 5;
     private float timer = 0;
     
-	void Update ()
-    {
+	void Update () {
         if (timer > lifetime)
             Destroy(gameObject);
 

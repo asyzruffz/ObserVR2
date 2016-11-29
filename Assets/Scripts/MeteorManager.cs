@@ -51,7 +51,7 @@ public class MeteorManager : MonoBehaviour {
                 meteorPos = Random.onUnitSphere * radius;
             } while (Mathf.Abs(meteorPos.y) > radius * Mathf.Sin(angleRange * 0.5f * Mathf.Deg2Rad));
 
-            GameObject meteorObject = (GameObject)Instantiate(meteorPrefab, meteorPos, Quaternion.identity);
+            GameObject meteorObject = (GameObject)Instantiate(meteorPrefab, meteorPos, Random.rotation);
             meteorObject.name = "Meteor";
             meteorObject.transform.parent = gameObject.transform;
             meteorCounter++;

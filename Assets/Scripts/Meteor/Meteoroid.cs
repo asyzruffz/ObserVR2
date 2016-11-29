@@ -11,8 +11,7 @@ public class Meteoroid : MonoBehaviour {
     private bool exploded = false;
     private AudioSource explodeSound;
 
-	void Awake ()
-    {
+	void Awake () {
         int rng = Random.Range(0, variations.Length);
         GameObject model = (GameObject)Instantiate(variations[rng], transform.position, Quaternion.identity);
         model.transform.localScale = transform.localScale;
@@ -20,35 +19,29 @@ public class Meteoroid : MonoBehaviour {
         model.name = "Model";
 	}
 
-    void Start()
-    {
+    void Start() {
         select = GetComponent<Selectable>();
         explodeSound = GetComponent<AudioSource>();
         Director.Instance.endEvent += OnExplode;
         FindObjectOfType<PlayerStatus>().hitEvent += OnHitPlayer;
     }
 	
-	void Update ()
-    {
-	    if(select.connected)
-        {
+	void Update () {
+	    if(select.connected) {
             hardness -= DamagePerSecond() * Time.deltaTime;
         }
 
-        if(hardness <= 0 && !exploded)
-        {
+        if(hardness <= 0 && !exploded) {
             OnExplode();
             FindObjectOfType<Score>().score += 10;
         }
 	}
 
-    public void OnExplode()
-    {
+    public void OnExplode() {
         exploded = true;
 
         var player = GameObject.FindWithTag("Player");
-        if (player.GetComponent<CameraShake>() != null)
-        {
+        if (player.GetComponent<CameraShake>() != null) {
             player.GetComponent<CameraShake>().ShakeCamera();
         }
 
@@ -64,8 +57,7 @@ public class Meteoroid : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    public void OnHitPlayer()
-    {
+    public void OnHitPlayer() {
         SelectionManager.Instance.ClearSelection();
         Director.Instance.endEvent -= OnExplode;
         FindObjectOfType<PlayerStatus>().hitEvent -= OnHitPlayer;
@@ -73,14 +65,11 @@ public class Meteoroid : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private float DamagePerSecond()
-    {
+    private float DamagePerSecond() {
         float damage = 0;
 
-        foreach (GameObject node in SelectionManager.Instance.nodes)
-        {
-            if (node != null && node.gameObject.CompareTag("Satellite"))
-            {
+        foreach (GameObject node in SelectionManager.Instance.nodes) {
+            if (node != null && node.gameObject.CompareTag("Satellite")) {
 				damage += node.GetComponent<LaserController>().laserDamage;
             }
         }

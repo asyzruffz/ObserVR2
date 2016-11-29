@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 198: {fileID: 19800000}
   - 199: {fileID: 19900000}
+  - 114: {fileID: 11447616}
   m_Layer: 0
   m_Name: Sparkles
   m_TagString: Untagged
@@ -27,6 +28,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 198: {fileID: 19800002}
   - 199: {fileID: 19900002}
+  - 114: {fileID: 11481844}
   m_Layer: 0
   m_Name: Ray2
   m_TagString: Untagged
@@ -44,6 +46,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 198: {fileID: 19800004}
   - 199: {fileID: 19900004}
+  - 114: {fileID: 11402776}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -61,6 +64,7 @@ GameObject:
   - 4: {fileID: 400006}
   - 198: {fileID: 19800006}
   - 199: {fileID: 19900006}
+  - 114: {fileID: 11413030}
   m_Layer: 0
   m_Name: Ray1
   m_TagString: Untagged
@@ -78,6 +82,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 198: {fileID: 19800008}
   - 199: {fileID: 19900008}
+  - 114: {fileID: 11400308}
   m_Layer: 0
   m_Name: Explode
   m_TagString: Untagged
@@ -96,6 +101,7 @@ GameObject:
   - 198: {fileID: 19800010}
   - 199: {fileID: 19900010}
   - 114: {fileID: 11490506}
+  - 114: {fileID: 11486442}
   m_Layer: 0
   m_Name: Boom
   m_TagString: Untagged
@@ -170,8 +176,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 400008}
   - {fileID: 400006}
@@ -180,6 +186,78 @@ Transform:
   - {fileID: 400000}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11400308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d0b7ff3009d6f48959ef65cba80ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartSpeed: 0
+--- !u!114 &11402776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d0b7ff3009d6f48959ef65cba80ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartSpeed: 0
+--- !u!114 &11413030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d0b7ff3009d6f48959ef65cba80ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartSpeed: 0
+--- !u!114 &11447616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d0b7ff3009d6f48959ef65cba80ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartSpeed: 0
+--- !u!114 &11481844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d0b7ff3009d6f48959ef65cba80ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartSpeed: 0
+--- !u!114 &11486442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d0b7ff3009d6f48959ef65cba80ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartSpeed: 0
 --- !u!114 &11490506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,7 +348,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 3
     startSpeed:
-      scalar: 3
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1664,7 +1742,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 3
     startSpeed:
-      scalar: -0.01
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9160,15 +9238,27 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_StartSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

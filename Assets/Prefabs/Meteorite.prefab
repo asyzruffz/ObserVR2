@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 0}
+  rotateUpwardGravity: 0
   alwaysFacing: 0
   facingDirection: {x: 0, y: 0}
 --- !u!114 &11486854
@@ -360,6 +361,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: OutputAudioMixerGroup
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rotateUpwardGravity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
