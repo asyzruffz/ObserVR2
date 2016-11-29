@@ -25,7 +25,7 @@ public class SatelliteController : MonoBehaviour {
 			direction.y = 1;
 		}
 
-		transform.Translate (DirectionFromPerspective (direction) * speed * Time.fixedDeltaTime);
+		transform.Translate (DirectionFromPerspective (direction) * speed * Time.fixedDeltaTime, Space.World);
     }
 
 	private Vector3 DirectionFromPerspective(Vector2 dir) {
@@ -44,5 +44,10 @@ public class SatelliteController : MonoBehaviour {
 		if(fowardFace != Vector3.zero) {
 			transform.rotation = Quaternion.LookRotation(fowardFace, Vector3.up) * Quaternion.Euler(Vector3.right * 90);
 		}
+	}
+
+	void OnDrawGizmos() {
+		Gizmos.color = Color.yellow;
+		Gizmos.DrawLine(transform.position, transform.position + DirectionFromPerspective (direction) * 20);
 	}
 }
