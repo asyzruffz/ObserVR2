@@ -69,7 +69,7 @@ AudioSource:
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 7
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyEffect: {fileID: 100010, guid: 5167fbcc7fffc42f08772d76479e90b4, type: 2}
+  trailEffect: {fileID: 192734, guid: a02b836a6735972418e836b1f64893b4, type: 2}
   variations:
   - {fileID: 118272, guid: 9844ab7934ee8ee42b2cbebeb13ed7b4, type: 2}
   - {fileID: 190560, guid: 862755c80407ac94c969a70a77ff4ec4, type: 2}
@@ -366,6 +367,14 @@ Prefab:
       propertyPath: rotateUpwardGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MinDistance
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: trailEffect
+      value: 
+      objectReference: {fileID: 192734, guid: a02b836a6735972418e836b1f64893b4, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 144854}
