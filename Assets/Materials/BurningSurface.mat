@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: rock_front_col
+  m_Name: BurningSurface
   m_Shader: {fileID: 4800000, guid: 322f3fd2178b2f34ebf933063b20cb38, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 0a1bf65398501304f9395e61e07dd6a5, type: 3}
+          m_Texture: {fileID: 2800000, guid: d9f1abe84637fcd48b3f04963452aaff, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -89,7 +89,7 @@ Material:
         first:
           name: _OverlayTexture
         second:
-          m_Texture: {fileID: 2800000, guid: d9f1abe84637fcd48b3f04963452aaff, type: 3}
+          m_Texture: {fileID: 2800000, guid: dd312114f1d6c8b4fb441d5fa8d44bbd, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -116,7 +116,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.5
+        second: 0
       data:
         first:
           name: _BumpScale
@@ -153,4 +153,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+        second: {r: 1, g: 0, b: 0, a: 1}
