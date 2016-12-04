@@ -7,8 +7,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CameraShake : MonoBehaviour
-{
+public class CameraShake : MonoBehaviour {
 
     public bool debugMode = false; // Test-run/Call ShakeCamera() on start
 
@@ -28,13 +27,11 @@ public class CameraShake : MonoBehaviour
 	[ConditionalHide("smooth", true)]
     public float smoothAmount = 5f; // Amount to smooth
 
-    void Start()
-    {
+    void Start() {
         if (debugMode) ShakeCamera();
     }
 
-    public void ShakeCamera()
-    {
+    public void ShakeCamera() {
         // Set default (start) values
         amount = shakeAmount;
         maxAmount = shakeAmount;
@@ -44,8 +41,7 @@ public class CameraShake : MonoBehaviour
         if (!isRunning) StartCoroutine(Shake());// Only call the coroutine if it isn't currently running. Otherwise, just set the variables.
     }
 
-    public void ShakeCamera(float _amount, float _duration)
-    {
+    public void ShakeCamera(float _amount, float _duration) {
         amount += _amount; // Add to the current amount.
         maxAmount = amount; // Reset the start amount, to determine percentage.
         duration += _duration; // Add to the current time.
@@ -54,13 +50,11 @@ public class CameraShake : MonoBehaviour
         if (!isRunning) StartCoroutine(Shake()); // Only call the coroutine if it isn't currently running. Otherwise, just set the variables.
     }
     
-    IEnumerator Shake()
-    {
+    IEnumerator Shake() {
         isRunning = true;
         Quaternion originalRotation = transform.localRotation;
 
-        while (duration >= 0f)
-        {
+        while (duration >= 0f) {
             Vector3 rotationAmount = Random.insideUnitSphere * amount; // A Vector3 to add to the Local Rotation
             rotationAmount.z = 0; // Don't change the Z; it looks funny.
 

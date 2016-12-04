@@ -1,17 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Highscore : MonoBehaviour
-{
+public class Highscore : MonoBehaviour {
     private Text scoreText;
 
-    void Awake()
-    {
+    void Awake() {
         scoreText = GetComponent<Text>();
     }
 
-    void Update()
-    {
+    void Update() {
         scoreText.GetComponent<Text>().text = Director.Instance.HighScore + " Highscore";
     }
 }

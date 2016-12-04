@@ -9,14 +9,12 @@ public class ConnectionLine : MonoBehaviour {
 
     private LineRenderer lr;
     
-    void Start ()
-    {
+    void Start () {
 	    lr = GetComponent<LineRenderer>();
         lr.SetWidth(width, width);
     }
     
-    void Update ()
-    {
+    void Update () {
         lr.SetPosition(0, start.transform.position);
         lr.SetPosition(1, end.transform.position);
     }

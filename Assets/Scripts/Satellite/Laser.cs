@@ -11,39 +11,31 @@ public class Laser : MonoBehaviour {
 
     private LineRenderer line;
 
-	void Start ()
-    {
+	void Start () {
         line = GetComponent<LineRenderer>();
         line.enabled = on;
 	}
 	
-	void Update ()
-    {
-	    if(on)
-        {
+	void Update () {
+	    if(on) {
             StopCoroutine("FireLaser");
             StartCoroutine("FireLaser");
         }
 	}
 
-    IEnumerator FireLaser()
-    {
+    IEnumerator FireLaser() {
         line.enabled = true;
 
-        while(on)
-        {
+        while(on) {
             line.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(-Time.time * 0.2f, 0);
 
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
 
             line.SetPosition(0, transform.position);
-			if(Physics.Raycast(ray, out hit, maxDistance, ~passThrough))
-            {
+			if(Physics.Raycast(ray, out hit, maxDistance, ~passThrough)) {
                 line.SetPosition(1, hit.point);
-            }
-            else
-            {
+            } else {
                 line.SetPosition(1, beamToMax ? ray.GetPoint(maxDistance) : ray.GetPoint(0));
             }
 

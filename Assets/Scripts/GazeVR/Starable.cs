@@ -3,13 +3,11 @@ using UnityEngine.EventSystems;
 using System.Collections;
 
 [RequireComponent(typeof(Collider), typeof(EventTrigger))]
-public class Starable : MonoBehaviour, IGvrGazeResponder
-{
+public class Starable : MonoBehaviour, IGvrGazeResponder {
 
     public bool stared = false;
     
-    public void SetGazedAt(bool gazedAt)
-    {
+    public void SetGazedAt(bool gazedAt) {
         stared = gazedAt;
     }
 

@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class LaserManager : MonoBehaviour
-{
+public class LaserManager : MonoBehaviour {
+
     private List<int> satelliteList = new List<int>();
     private List<int> meteorList = new List<int>();
 
@@ -44,8 +44,7 @@ public class LaserManager : MonoBehaviour
 
             if (obj.name.Equals("Satellite")) {
                 satelliteList.Add(i);
-            }
-            else if (obj.name.Equals("Meteor")) {
+            } else if (obj.name.Equals("Meteor")) {
                 meteorList.Add(i);
             }
         }

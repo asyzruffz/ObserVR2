@@ -3,8 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class RestartGame : MonoBehaviour
-{
+public class RestartGame : MonoBehaviour {
 
     public Health health;
 
