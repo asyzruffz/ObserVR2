@@ -6,17 +6,20 @@ public class MenuValidator : MonoBehaviour
 {
     public GameObject playButton;
     public GameObject exitButton;
+	public GameObject manualText;
 
     private string clickPlayCommand;
     private string clickExitCommand;
     private bool playClicked = false;
     private bool exitClicked = false;
 
+
     // Use this for initialization
     void Start()
     {
         Director.Instance.startEvent += HideMenu;
         Director.Instance.endEvent += ShowMenuDelayed;
+
 
         clickPlayCommand = "(?=.*P-)(?=.*L-)(?=.*A-)(?=.*Y-)";
         clickExitCommand = "(?=.*E-)(?=.*X-)(?=.*I-)(?=.*T-)";
@@ -57,12 +60,14 @@ public class MenuValidator : MonoBehaviour
     {
         playButton.SetActive(false);
         exitButton.SetActive(false);
+		manualText.SetActive(false);
     }
 
     void ShowMenu()
     {
         playButton.SetActive(true);
         exitButton.SetActive(true);
+		manualText.SetActive(true);
     }
 
     void ShowMenuDelayed()
