@@ -18,7 +18,7 @@ public class ParticleScaler : MonoBehaviour {
         float currentScale = (transform.lossyScale.x + transform.lossyScale.y + transform.lossyScale.z) / 3.0f;
         m_System.startSpeed = m_StartSpeed * currentScale;
         for (int i = 0; i < numParticlesAlive; i++) {
-            m_Particles[i].size = currentScale;
+            m_Particles[i].startSize = currentScale;
         }
 
         m_System.SetParticles(m_Particles, numParticlesAlive);
@@ -29,8 +29,8 @@ public class ParticleScaler : MonoBehaviour {
             m_System = GetComponent<ParticleSystem>();
         }
 
-        if (m_Particles == null || m_Particles.Length < m_System.maxParticles) {
-            m_Particles = new ParticleSystem.Particle[m_System.maxParticles];
+        if (m_Particles == null || m_Particles.Length < m_System.main.maxParticles) {
+            m_Particles = new ParticleSystem.Particle[m_System.main.maxParticles];
         }
     }
 }

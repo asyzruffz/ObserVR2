@@ -11,7 +11,8 @@ public class ConnectionLine : MonoBehaviour {
     
     void Start () {
 	    lr = GetComponent<LineRenderer>();
-        lr.SetWidth(width, width);
+        lr.startWidth = width;
+        lr.endWidth = width;
     }
     
     void Update () {
