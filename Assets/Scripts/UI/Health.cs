@@ -26,35 +26,28 @@ public class Health : MonoBehaviour {
 	void Update () {
         SetVisible(Director.Instance.inGame);
 
-        if (Director.Instance.inGame)
-        {
+        if (Director.Instance.inGame) {
             //livesText.text = "Lives: " + lives;
             percent.percentage = (float)lives / maxLives * 100;
-        }
-        else
-        {
+        } else {
             //livesText.text = "";
             percent.percentage = 100;
         }
 
-        if(lives <= 0 && Director.Instance.inGame)
-        {
+        if(lives <= 0 && Director.Instance.inGame) {
             Director.Instance.inGame = false;
         }
     }
 
-    void ResetHealth()
-    {
+    void ResetHealth() {
         lives = maxLives;
     }
 
-    void OnHit()
-    {
+    void OnHit() {
         lives--;
     }
 
-    void SetVisible(bool visible)
-    {
+    void SetVisible(bool visible) {
         foreach (Transform child in transform)
             child.gameObject.SetActive(visible);
     }

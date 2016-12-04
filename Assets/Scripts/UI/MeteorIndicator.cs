@@ -11,19 +11,13 @@ public class MeteorIndicator : MonoBehaviour {
     }
 	
 	void Update () {
-        if(Director.Instance.inGame)
-        {
-            if (MeteorManager.meteorCounter > 0)
-            {
+        if(Director.Instance.inGame) {
+            if (MeteorManager.meteorCounter > 0) {
                 indicator.text = "Incoming Meteor Attack!";
-            }
-            else
-            {
+            } else {
                 indicator.text = "You are safe for now...";
             }
-        }
-        else
-        {
+        } else {
             indicator.text = "";
         }
 	}
