@@ -3,8 +3,8 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-public class SelectionManager : Singleton<SelectionManager>
-{
+public class SelectionManager : Singleton<SelectionManager> {
+
     public bool showLines = false;
     [ConditionalHide("showLines", true)]
     public GameObject lineType;

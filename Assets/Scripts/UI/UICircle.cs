@@ -3,8 +3,8 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 [ExecuteInEditMode]
-public class UICircle : Graphic
-{
+public class UICircle : Graphic {
+
     [SerializeField]
     Texture m_Texture;
     [Range(0, 100)]
@@ -14,10 +14,8 @@ public class UICircle : Graphic
     [Range(0, 360)]
     public int segments = 360;
 
-    public override Texture mainTexture
-    {
-        get
-        {
+    public override Texture mainTexture {
+        get {
             return m_Texture == null ? s_WhiteTexture : m_Texture;
         }
     }
@@ -25,14 +23,11 @@ public class UICircle : Graphic
     /// <summary>
     /// Texture to be used.
     /// </summary>
-    public Texture texture
-    {
-        get
-        {
+    public Texture texture {
+        get {
             return m_Texture;
         }
-        set
-        {
+        set {
             if (m_Texture == value)
                 return;
             m_Texture = value;
@@ -43,22 +38,18 @@ public class UICircle : Graphic
 
     private int oldPercent = 100;
 
-    void Update()
-    {
+    void Update() {
         this.thickness = (int)Mathf.Clamp(this.thickness, 0, rectTransform.rect.width / 2);
 
-        if(fillPercent != oldPercent)
-        {
+        if(fillPercent != oldPercent) {
             SetVerticesDirty();
             oldPercent = fillPercent;
         }
     }
 
-    protected UIVertex[] SetVbo(Vector2[] vertices, Vector2[] uvs)
-    {
+    protected UIVertex[] SetVbo(Vector2[] vertices, Vector2[] uvs) {
         UIVertex[] vbo = new UIVertex[4];
-        for (int i = 0; i < vertices.Length; i++)
-        {
+        for (int i = 0; i < vertices.Length; i++) {
             var vert = UIVertex.simpleVert;
             vert.color = color;
             vert.position = vertices[i];
@@ -68,8 +59,7 @@ public class UICircle : Graphic
         return vbo;
     }
 
-    protected override void OnPopulateMesh(VertexHelper vh)
-    {
+    protected override void OnPopulateMesh(VertexHelper vh) {
         float outer = -rectTransform.pivot.x * rectTransform.rect.width;
         float inner = -rectTransform.pivot.x * rectTransform.rect.width + this.thickness;
 
@@ -88,8 +78,7 @@ public class UICircle : Graphic
         float f = (this.fillPercent / 100f);
         float degrees = 360f / segments;
         int fa = (int)((segments + 1) * f);
-        for (int i = 0; i < fa; i++)
-        {
+        for (int i = 0; i < fa; i++) {
             float rad = Mathf.Deg2Rad * (i * degrees);
             float c = Mathf.Cos(rad);
             float s = Mathf.Sin(rad);
@@ -99,13 +88,10 @@ public class UICircle : Graphic
             uv3 = new Vector2(0, 0);
             pos0 = prevX;
             pos1 = new Vector2(outer * c, outer * s);
-            if (fill)
-            {
+            if (fill) {
                 pos2 = Vector2.zero;
                 pos3 = Vector2.zero;
-            }
-            else
-            {
+            } else {
                 pos2 = new Vector2(inner * c, inner * s);
                 pos3 = prevY;
             }

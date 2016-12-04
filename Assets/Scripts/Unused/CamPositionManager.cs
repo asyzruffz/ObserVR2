@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CamPositionManager : MonoBehaviour
-{
+public class CamPositionManager : MonoBehaviour {
 
     public ImageFade fadeImage;
     public float fadeTime = 1;
@@ -12,31 +11,26 @@ public class CamPositionManager : MonoBehaviour
     private int currentTarget = 0;
     private int currentPosition = 0;
 
-    void Start()
-    {
+    void Start() {
         fadeImage.gameObject.SetActive(true);
         fadeImage.FadeOut(0);
     }
 
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
+    void Update() {
+        if (Input.GetMouseButtonDown(1)) {
             currentTarget++;
             currentTarget = currentTarget % viewingPoints.Length;
             MoveCamera(currentTarget);
         }
     }
 
-    public void MoveCamera(int positionIndex)
-    {
+    public void MoveCamera(int positionIndex) {
         if (currentPosition == positionIndex)
             return;
         StartCoroutine(OnMoveCamera(positionIndex));
     }
 
-    IEnumerator OnMoveCamera(int positionIndex)
-    {
+    IEnumerator OnMoveCamera(int positionIndex) {
         fadeImage.FadeIn(fadeTime);
         yield return new WaitForSeconds(fadeTime);
         viewingCamera.position = viewingPoints[positionIndex].position;

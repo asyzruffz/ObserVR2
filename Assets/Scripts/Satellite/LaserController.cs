@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class LaserController : MonoBehaviour
-{
+public class LaserController : MonoBehaviour {
 	public float laserDamage = 15f;
 	public Laser chargingLaser;
     public GameObject shootingLaser;
@@ -64,8 +63,7 @@ public class LaserController : MonoBehaviour
         lasers.Clear();
     }
 
-    class LaserUnit
-    {
+    class LaserUnit {
         public GameObject laser;
         public GameObject target;
 

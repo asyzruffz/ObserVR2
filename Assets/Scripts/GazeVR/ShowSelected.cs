@@ -17,13 +17,11 @@ public class ShowSelected : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (self.selected || self.connected)
-        {
-            if (materialSelected != null)
+        if (self.selected || self.connected) {
+            if (materialSelected != null) {
                 GetComponent<Renderer>().material = materialSelected;
-        }
-        else
-        {
+            }
+        } else {
             GetComponent<Renderer>().material = materialIdle;
         }
     }

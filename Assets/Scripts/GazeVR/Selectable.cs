@@ -10,33 +10,30 @@ public class Selectable : MonoBehaviour {
 
     private Starable status;
     private float activationTimer = 0;
-
-	// Use this for initialization
+    
 	void Start () {
         status = GetComponent<Starable>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (status.stared)
-        {
+
+    void Update() {
+        if (status.stared) {
             selected = true;
             activationTimer = 0;
         }
 
-        if (selected)
-        {
+        if (selected) {
             activationTimer += Time.deltaTime;
-            if (!connected)
+            if (!connected) {
                 SelectionManager.Instance.AddToSelection(gameObject);
+            }
         }
 
-        if (activationTimer > activeTime)
+        if (activationTimer > activeTime) {
             selected = false;
+        }
     }
 
-    public void Clear()
-    {
+    public void Clear() {
         selected = false;
         connected = false;
     }

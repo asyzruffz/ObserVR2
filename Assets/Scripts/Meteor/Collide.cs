@@ -10,10 +10,8 @@ public class Collide : MonoBehaviour {
         status = player.GetComponent<PlayerStatus>();
 	}
     
-	void OnTriggerEnter(Collider collidedObject)
-	{
-		if(collidedObject.gameObject.tag == "Player")
-		{
+	void OnTriggerEnter(Collider collidedObject) {
+		if(collidedObject.gameObject.tag == "Player") {
             status.Hit();
 		}
 	}

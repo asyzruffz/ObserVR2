@@ -29,47 +29,37 @@ public class PlayerStatus : MonoBehaviour {
 	void Update () {
         warning = false;
         var meteoroids = FindObjectsOfType<Meteoroid>();
-        foreach(var meteoroid in meteoroids)
-        {
-            if(meteoroid != null)
-            {
+        foreach(var meteoroid in meteoroids) {
+            if(meteoroid != null) {
                 float distance = Vector3.Distance(transform.position, meteoroid.transform.position);
-                if(distance < warningDistance)
-                {
+                if(distance < warningDistance) {
                     warning = true;
                     break;
                 }
             }
         }
 
-        if(warning && !warnSounding)
-        {
+        if(warning && !warnSounding) {
             warnSounding = true;
             warningSound.Play();
             StartCoroutine(ResetWarning());
         }
     }
 
-    public void Hit()
-    {
+    public void Hit() {
         if (hitEvent != null)
             hitEvent();
     }
 
-    void OnHit()
-    {
-        if (GetComponent<CameraShake>() != null)
-        {
+    void OnHit() {
+        if (GetComponent<CameraShake>() != null) {
             GetComponent<CameraShake>().ShakeCamera();
         }
 
         int lives = GetComponentInChildren<Health>().lives;
-        if (lives == 0)
-        {
+        if (lives == 0) {
             deathSound.Play();
-        }
-        else
-        {
+        } else {
             painSound.Play();
         }
 
@@ -77,16 +67,14 @@ public class PlayerStatus : MonoBehaviour {
     }
 
 
-    IEnumerator Dizzy()
-    {
+    IEnumerator Dizzy() {
         blood.FadeIn(0.5f);
         yield return new WaitForSeconds(0.5f);
         blood.FadeOut(1f);
         yield return new WaitForSeconds(1f);
     }
 
-    IEnumerator ResetWarning()
-    {
+    IEnumerator ResetWarning() {
         yield return new WaitForSeconds(3f);
         warnSounding = false;
     }

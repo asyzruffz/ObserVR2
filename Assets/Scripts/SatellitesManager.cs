@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SatellitesManager : MonoBehaviour
-{
+public class SatellitesManager : MonoBehaviour {
+
     public GameObject source;
     public int amount = 10;
 	public float radius = 20;
