@@ -65,12 +65,14 @@ public class GvrReticle : MonoBehaviour, IGvrGazePointer {
   }
 
   void OnDisable() {
+#pragma warning disable CS0252 // Possible unintended reference comparison; left hand side needs cast
     if (GazeInputModule.gazePointer == this) {
       GazeInputModule.gazePointer = null;
     }
+#pragma warning restore CS0252 // Possible unintended reference comparison; left hand side needs cast
   }
 
-  void Update() {
+    void Update() {
     UpdateDiameters();
   }
 
